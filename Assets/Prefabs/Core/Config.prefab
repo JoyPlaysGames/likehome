@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4762994456002795191}
   - component: {fileID: 5229336990506260705}
   - component: {fileID: 8001122658814658514}
+  - component: {fileID: 2677970730242490846}
   m_Layer: 0
   m_Name: Config
   m_TagString: Untagged
@@ -44,7 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73b002865278394eb937db094e8c141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientConfigs: []
+  ingredientConfigs:
+  - kind: 1
+    icon: {fileID: 21300000, guid: 5cc8e0d2bbef96449ac5d49d0ec5c479, type: 3}
+    prefab: {fileID: 0}
+  - kind: 2
+    icon: {fileID: 21300000, guid: 0eb339eddb612d542bb413612ecb6310, type: 3}
+    prefab: {fileID: 0}
+  - kind: 3
+    icon: {fileID: 21300000, guid: 96f4cd430acdb684fbcaf23c454cc85d, type: 3}
+    prefab: {fileID: 0}
 --- !u!114 &8001122658814658514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,4 +67,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae433a563c08f26459db107cbfe4eb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipieConfigs: []
+  recipieConfigs:
+  - kind: 1
+    reqirements:
+    - ingredient: 1
+      count: 1
+    - ingredient: 2
+      count: 1
+  - kind: 2
+    reqirements:
+    - ingredient: 1
+      count: 1
+    - ingredient: 3
+      count: 1
+  - kind: 3
+    reqirements:
+    - ingredient: 2
+      count: 1
+    - ingredient: 3
+      count: 1
+--- !u!114 &2677970730242490846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7397431790980160297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecd9627572795a04eb42eff9ca7e944c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskConfig:
+  - kind: 1
+    icon: {fileID: 21300000, guid: e700321339cedb04d99ffe09705d658a, type: 3}
+    prefab: {fileID: 0}
+  - kind: 2
+    icon: {fileID: 21300000, guid: b6f45b4d800524841a0e5d7ff8a602d9, type: 3}
+    prefab: {fileID: 0}

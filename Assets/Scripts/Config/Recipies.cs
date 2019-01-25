@@ -5,10 +5,11 @@ using UnityEngine;
 
 public enum RecipieKind
 {
-    None = 1,
+    None = 0,
+    SpiderLegSoup = 1,
+    SpiderEyeSushi = 2,
+    SnakeTailBBQ = 3,
 }
-
-
 
 public class Recipies : MonoBehaviour
 {
@@ -34,15 +35,11 @@ public class Recipies : MonoBehaviour
 }
 
 
-
-
-
-
 [Serializable]
 public class RecipieConfig
 {
     public RecipieKind kind = RecipieKind.None;
-    public RecipieRequirements reqirements;
+    public List<RecipieRequirements> reqirements;
 }
 
 [Serializable]
