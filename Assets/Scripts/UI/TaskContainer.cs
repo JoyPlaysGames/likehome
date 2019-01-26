@@ -74,7 +74,7 @@ public class TaskContainer : MonoBehaviour
         blockFail.SetActive(true);
         StartCoroutine("Destroy");
     }
-    void Win()
+    public void Win()
     {
         active = false;
         blockCasual.SetActive(false);

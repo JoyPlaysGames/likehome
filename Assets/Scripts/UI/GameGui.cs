@@ -13,6 +13,10 @@ public class GameGui : MonoBehaviour
     public Text levelScore;
 
     public Sprite recipieIcon;
+
+    public GameObject winPopup;
+    public GameObject losePoup;
+
     // Start is called before the first frame update
     void Awake()
     {

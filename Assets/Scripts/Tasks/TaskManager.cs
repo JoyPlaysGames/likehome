@@ -11,13 +11,13 @@ public class TaskManager : MonoBehaviour
     int currentLevel = 0;
     public List<LevelConfig> levels;
     Dictionary<int, LevelTask> openTasks = new Dictionary<int, LevelTask>();
+    Dictionary<int, TaskContainer> taskUiCards = new Dictionary<int, TaskContainer>();
 
     LevelConfig level;
 
     public bool gameFinished = false;
     int currentTaskCount = 0;
     int maxTaskCount = 3;
-    int currentTaskId = 0;
 
     bool active = true;
 
@@ -37,6 +37,7 @@ public class TaskManager : MonoBehaviour
 
     void StartLevel()
     {
+
         level = levels[currentLevel];
         for(int i = 0; i < level.tasks.Count; i++)
         {
@@ -44,12 +45,14 @@ public class TaskManager : MonoBehaviour
         }
         levelTime = level.time;
         levelTimeText = The.gameGui.levelTimer;
-        StartCoroutine(InstantiateTask());
+        StartCoroutine(InstantiateTask(0.3f));
+        StartCoroutine(InstantiateTask(0.6f));
+        StartCoroutine(InstantiateTask(0.9f));
     }
 
-    IEnumerator InstantiateTask()
+    IEnumerator InstantiateTask(float delay)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(delay);
         LevelTask task = GetUnfinishedTask();
         if (task != null)
         {
@@ -58,15 +61,9 @@ public class TaskManager : MonoBehaviour
             t.transform.parent = The.gameGui.taskParent.transform;
             t.transform.localScale = Vector3.one;
             t.GetComponent<TaskContainer>().Sync(task);
+            taskUiCards.Add(task.id, t.GetComponent<TaskContainer>());
             currentTaskCount++;
         }
-        else
-        {
-            ProcessLevelEnd();
-        }
-        if (currentTaskCount < maxTaskCount && task != null)
-            StartCoroutine("InstantiateTask");
-
     }
 
     LevelTask GetUnfinishedTask()
@@ -83,6 +80,17 @@ public class TaskManager : MonoBehaviour
         openTasks[id].completed = true;
         score -= openTasks[id].failPoints;
         The.gameGui.levelScore.text = score.ToString();
+        StartCoroutine(InstantiateTask(3.3f));
+        CheckLEvelFinished();
+    }
+    public void FinishTask(int id)
+    {
+        openTasks[id].completed = true;
+        taskUiCards[id].Win();
+        score += openTasks[id].rewardPoints;
+        The.gameGui.levelScore.text = score.ToString();
+        StartCoroutine(InstantiateTask(3.3f));
+        CheckLEvelFinished();
     }
 
     private void FixedUpdate()
@@ -100,8 +108,51 @@ public class TaskManager : MonoBehaviour
         }
     }
 
+    void CheckLEvelFinished()
+    {
+        bool gotUnfinishedTasks = false;
+        foreach(KeyValuePair<int, LevelTask> task in openTasks)
+        {
+            if (!task.Value.completed) gotUnfinishedTasks = true;
+        }
+
+        if((GetUnfinishedTask() == null && !gotUnfinishedTasks) || levelTime < 0)
+        {
+            active = false;
+            ProcessLevelEnd();
+        }
+    }
+
     void ProcessLevelEnd()
     {
+        if(score >= level.minScoreToWin)
+        {
+            The.gameGui.winPopup.SetActive(true);
+        }
+        else
+        {
+            The.gameGui.losePoup.SetActive(true);
+        }
+        StartCoroutine("PrepareNextLevel");
+    }
+
+    IEnumerator PrepareNextLevel()
+    {
+        yield return new WaitForSeconds(5f);
+        The.gameGui.winPopup.SetActive(false);
+        The.gameGui.winPopup.SetActive(false);
+        currentLevel++;
+        if(currentLevel >= levels.Count)
+        {
+            Debug.Log("GAME ENDED!!!!!");
+        }
+        else
+        {
+            openTasks = new Dictionary<int, LevelTask>();
+            score = 0;
+            active = true;
+            StartLevel();
+        }
 
     }
 }
@@ -109,8 +160,9 @@ public class TaskManager : MonoBehaviour
 [Serializable]
 public class LevelConfig
 {
-    public List<LevelTask> tasks;
     public float time;
+    public int minScoreToWin;
+    public List<LevelTask> tasks;
 }
 
 [Serializable]
@@ -126,4 +178,6 @@ public class LevelTask
     public bool completed;
     [HideInInspector]
     public int id;
+    [HideInInspector]
+    public LevelTask t;
 }

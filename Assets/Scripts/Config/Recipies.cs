@@ -32,6 +32,31 @@ public class Recipies : MonoBehaviour
         }
         return null;
     }
+
+    public bool DoesRecipieExistByIngredients(List<IngredientKind> ing)
+    {
+        for (int i = 0; i < recipieConfigs.Count; i++)
+        {
+            RecipieConfig recipie = recipieConfigs[i];
+            //IN EACH RECIPIE
+            bool contains = true;
+            for(var z = 0; z < recipie.reqirements.Count; i++)
+            {
+                RecipieRequirements r = recipie.reqirements[z];
+                if (!ing.Contains(r.ingredient))
+                {
+                    contains = false;
+                }
+                //EACH RECIPIE INREDIENT
+            }
+            if(contains)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
 }
 
 
