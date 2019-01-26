@@ -32,4 +32,9 @@ public class Table : MonoBehaviour {
 	{
 		
 	}
+
+    public virtual void TakeItem(Item newItem)
+    {
+        item = newItem;
+    }
 }

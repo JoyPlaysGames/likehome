@@ -108,8 +108,9 @@ public class Player : MonoBehaviour {
 					item.transform.SetParent(visibleTable.itemSlot.transform);
 					item.transform.position = visibleTable.itemSlot.transform.position;
 					playerAnimator.SetTrigger("PlaceItem");
-					visibleTable.item = item;
-					item = null;
+                    //visibleTable.item = item;
+                    visibleTable.TakeItem(item);
+                    item = null;
 				}
 
 				if (item == null && visibleSpot != null)
