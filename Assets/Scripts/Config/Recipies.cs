@@ -40,7 +40,7 @@ public class Recipies : MonoBehaviour
             RecipieConfig recipie = recipieConfigs[i];
             //IN EACH RECIPIE
             bool contains = true;
-            for(var z = 0; z < recipie.reqirements.Count; i++)
+            for(var z = 0; z < recipie.reqirements.Count; z++)
             {
                 //EACH RECIPIE REQUIREMENT
                 RecipieRequirements r = recipie.reqirements[z];

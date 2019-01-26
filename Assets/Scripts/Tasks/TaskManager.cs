@@ -167,6 +167,13 @@ public class TaskManager : MonoBehaviour
 
     public void ConsumeRecipie(Dictionary<IngredientKind, int> items)
     {
+        
+
+        if(items == null || items.Count == 0)
+        {
+            BadRecipieConsumed();
+            return;
+        }
         RecipieKind r = The.recipies.DoesRecipieExistByIngredients(items);
 		if (r != RecipieKind.None)
 		{

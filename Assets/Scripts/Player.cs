@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
@@ -115,14 +116,15 @@ public class Player : MonoBehaviour {
                     //visibleTable.item = item;
                     visibleTable.TakeItem(item);
                     item = null;
+                    return;
 				}
 
 				if(visibleTable != null && item == null && visiblePot != null)
 				{
 					visiblePot.gameObject.transform.SetParent(hands.transform);
 					visiblePot.gameObject.transform.position = hands.transform.position;
-					visibleTable.GetComponent<RecipieMixPot>().ingredients = visiblePot.ingredients;
-					potInHand = true;
+                    visiblePot.ingredients = visibleTable.GetComponent<RecipieMixPot>().ingredients;
+                    potInHand = true;
 				}
 
 				if (item == null && visibleSpot != null && !potInHand)

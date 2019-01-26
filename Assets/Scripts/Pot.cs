@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pot : MonoBehaviour
 {
-	public Dictionary<IngredientKind, int> ingredients; 
+	public Dictionary<IngredientKind, int> ingredients = new Dictionary<IngredientKind, int>(); 
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,9 @@ public class Pot : MonoBehaviour
 		RecipieFeedSpot rFS = other.gameObject.GetComponent<RecipieFeedSpot>();
 		if (rFS && Input.GetKeyDown(KeyCode.F))
 		{
-			Destroy(gameObject);
+			
 			rFS.ConsumeRecipie(ingredients);
-		}
+            Destroy(gameObject);
+        }
 	}
 }
