@@ -33,7 +33,7 @@ public class Recipies : MonoBehaviour
         return null;
     }
 
-    public bool DoesRecipieExistByIngredients(List<IngredientKind> ing)
+    public RecipieKind DoesRecipieExistByIngredients(Dictionary<IngredientKind, int> ing)
     {
         for (int i = 0; i < recipieConfigs.Count; i++)
         {
@@ -42,20 +42,23 @@ public class Recipies : MonoBehaviour
             bool contains = true;
             for(var z = 0; z < recipie.reqirements.Count; i++)
             {
+                //EACH RECIPIE REQUIREMENT
                 RecipieRequirements r = recipie.reqirements[z];
-                if (!ing.Contains(r.ingredient))
+                if (!ing.ContainsKey(r.ingredient))
                 {
                     contains = false;
                 }
-                //EACH RECIPIE INREDIENT
+                else if(ing[r.ingredient] < r.count)
+                {
+                    contains = false;
+                }
             }
             if(contains)
             {
-                return true;
+                return recipie.kind;
             }
-
         }
-        return false;
+        return RecipieKind.None;
     }
 }
 

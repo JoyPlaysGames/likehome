@@ -68,7 +68,6 @@ public class TaskManager : MonoBehaviour
             {
                 CreateAndAssignTaskInScene(levelTask);
             }
-
         }
     }
 
@@ -115,7 +114,7 @@ public class TaskManager : MonoBehaviour
         score -= openTasks[id].failPoints;
         The.gameGui.levelScore.text = score.ToString();
         StartCoroutine(InstantiateTask(3.3f));
-        CheckLEvelFinished();
+        CheckLevelFinished();
     }
     public void FinishTask(int id)
     {
@@ -124,7 +123,7 @@ public class TaskManager : MonoBehaviour
         score += openTasks[id].rewardPoints;
         The.gameGui.levelScore.text = score.ToString();
         StartCoroutine(InstantiateTask(3.3f));
-        CheckLEvelFinished();
+        CheckLevelFinished();
     }
 
     private void FixedUpdate()
@@ -142,7 +141,7 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    void CheckLEvelFinished()
+    void CheckLevelFinished()
     {
         bool gotUnfinishedTasks = false;
         foreach(KeyValuePair<int, LevelTask> task in openTasks)
@@ -170,11 +169,46 @@ public class TaskManager : MonoBehaviour
         StartCoroutine("PrepareNextLevel");
     }
 
+    public void ConsumeRecipie(Dictionary<IngredientKind, int> items)
+    {
+        RecipieKind r = The.recipies.DoesRecipieExistByIngredients(items);
+        if(r != RecipieKind.None)
+        {
+            int id = IsRecipieAnActualTask(r);
+            if(id >= 0)
+            {
+                FinishTask(id);
+            }
+            else
+            {
+                BadRecipieConsumed();
+            }
+        }
+        else
+        {
+            BadRecipieConsumed();
+        }
+    }
+
+    void BadRecipieConsumed()
+    {
+        Debug.Log("YO GIB BAD SHIT");
+    }
+
+    public int IsRecipieAnActualTask(RecipieKind kind)
+    {
+        foreach(LevelTask task in level.tasks)
+        {
+            if (task.recipieKind == kind && openTasks.ContainsKey(task.id)) return task.id;
+        }
+        return -1;
+    }
+
     IEnumerator PrepareNextLevel()
     {
         yield return new WaitForSeconds(5f);
         The.gameGui.winPopup.SetActive(false);
-        The.gameGui.winPopup.SetActive(false);
+        The.gameGui.losePoup.SetActive(false);
         currentLevel++;
         if(currentLevel >= levels.Count)
         {

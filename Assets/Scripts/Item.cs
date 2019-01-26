@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour {
 
-	IngredientKind kind = IngredientKind.None;
+	public IngredientKind kind = IngredientKind.None;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
