@@ -9,7 +9,8 @@ public enum IngredientKind
     None = 0,
     SpiderLeg = 1,
     SpiderEye = 2,
-    Snake = 3
+    Snake = 3,
+	Branch = 4,
 }
 
 

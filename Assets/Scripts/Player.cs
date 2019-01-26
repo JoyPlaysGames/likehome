@@ -6,7 +6,7 @@ public class Player : MonoBehaviour {
 
 	[SerializeField] GameObject playerModel;
 	public Animator playerAnimator;
-	[SerializeField] Animator houseAnimator;
+	public Animator houseAnimator;
 	[SerializeField] GameObject playerBroom;
 	public GameObject usabilityFignja;
 	private bool iAmAttacking;

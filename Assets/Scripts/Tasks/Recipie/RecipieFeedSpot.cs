@@ -9,6 +9,7 @@ public class RecipieFeedSpot : MonoBehaviour
     {
 		Player._instance.potInHand = false;
 		Player._instance.playerAnimator.SetTrigger("PlaceItem");
+		Player._instance.houseAnimator.SetTrigger("MonsterFeed");
 		The.taskManager.ConsumeRecipie(ingredients);
     }
 }
