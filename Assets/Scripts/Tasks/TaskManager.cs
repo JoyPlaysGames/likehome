@@ -78,16 +78,12 @@ public class TaskManager : MonoBehaviour
         {
             if (enviromentSpot.kind == levelTask.taskKind && enviromentSpot.taskId < 0) listToUse.Add(enviromentSpot);
         }
-        for (int i = 0; i < listToUse.Count; i++)
-        {
-            TaskEnviromentSpot temp = listToUse[i];
-            int randomIndex = UnityEngine.Random.Range(i, listToUse.Count);
-            listToUse[i] = listToUse[randomIndex];
-            listToUse[randomIndex] = temp;
-        }
-        if (listToUse.Count == 0) Debug.LogError("TASKMANAGER: no task spots for needed task kind!");
+        Debug.Log(listToUse.Count);
+        listToUse[UnityEngine.Random.Range(0, listToUse.Count)].SetActiveEnviromentTask(levelTask);
 
-        listToUse[0].SetActiveEnviromentTask(levelTask);
+        //if (listToUse.Count == 0) Debug.LogError("TASKMANAGER: no task spots for needed task kind!");
+
+        //listToUse[0].SetActiveEnviromentTask(levelTask);
     }
 
     LevelTask GetUnfinishedTask()
