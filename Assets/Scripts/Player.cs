@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using System.Collections;
 
 public class Player : MonoBehaviour {
 
@@ -64,36 +63,42 @@ public class Player : MonoBehaviour {
 
 	private void Interaction()
 	{
-		if (Input.GetKeyDown(KeyCode.F) && visibleObject != null)
+		if(Input.GetKeyDown(KeyCode.F))
 		{
-			Item visibleItem = visibleObject.GetComponent<Item>();
-			Table visibleTable = visibleObject.GetComponent<Table>();
-			if(visibleItem == null)
+			if (visibleObject != null)
 			{
-				visibleItem = visibleTable.item;
-			}
-
-			if (item == null && visibleItem != null)
-			{
-				item = visibleItem;
-				item.transform.SetParent(hands.transform);
-				item.transform.position = hands.transform.position;
-				playerAnimator.SetTrigger("PickItem");
-				visibleItem = null;
-				if(visibleTable != null)
+				Item visibleItem = visibleObject.GetComponent<Item>();
+				Table visibleTable = visibleObject.GetComponent<Table>();
+				if (visibleItem == null)
 				{
-					visibleTable.item = null;
+					visibleItem = visibleTable.item;
 				}
-				return;
-			}
 
-			if (item != null && visibleTable != null && visibleTable.item == null)
+				if (item == null && visibleItem != null)
+				{
+					item = visibleItem;
+					item.transform.SetParent(hands.transform);
+					item.transform.position = hands.transform.position;
+					playerAnimator.SetTrigger("PickItem");
+					visibleItem = null;
+					if (visibleTable != null)
+					{
+						visibleTable.item = null;
+					}
+					return;
+				}
+
+				if (item != null && visibleTable != null && visibleTable.item == null)
+				{
+					item.transform.SetParent(visibleTable.itemSlot.transform);
+					item.transform.position = visibleTable.itemSlot.transform.position;
+					playerAnimator.SetTrigger("PlaceItem");
+					visibleTable.item = item;
+					item = null;
+				}
+			}else if(item == null)
 			{
-				item.transform.SetParent(visibleTable.itemSlot.transform);
-				item.transform.position = visibleTable.itemSlot.transform.position;
-				playerAnimator.SetTrigger("PlaceItem");
-				visibleTable.item = item;
-				item = null;
+				CheckInteractableObjects();
 			}
 		}
 	}
@@ -111,34 +116,30 @@ public class Player : MonoBehaviour {
     {
         if (performingAction) return; 
 
-        CheckInteractableObjects();
+        //CheckInteractableObjects();
     }
 
     void CheckInteractableObjects()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        TaskEnviromentSpot spot = null;
+        float d = 7f;
+        for (int i = 0; i < The.taskManager.taskSpots.Count; i++)
         {
-            TaskEnviromentSpot spot = null;
-            float d = 7f;
-            for (int i = 0; i < The.taskManager.taskSpots.Count; i++)
+            TaskEnviromentSpot s = The.taskManager.taskSpots[i];
+            Debug.Log(Vector3.Distance(transform.localPosition, s.transform.localPosition));
+            Debug.Log(transform.localPosition);
+            Debug.Log(s.transform.localPosition);
+            if (Vector3.Distance(transform.localPosition, s.transform.localPosition) < d && s.taskId >= 0)
             {
-                TaskEnviromentSpot s = The.taskManager.taskSpots[i];
-                Debug.Log(Vector3.Distance(transform.localPosition, s.transform.localPosition));
-                Debug.Log(transform.localPosition);
-                Debug.Log(s.transform.localPosition);
-                if (Vector3.Distance(transform.localPosition, s.transform.localPosition) < d && s.taskId >= 0)
-                {
-                    spot = s; break;
-                }
+                spot = s; break;
             }
+        }
 
-            if (spot != null)
-            {
-                performingAction = true;
-                StartCoroutine(PerformASpotTimer(spot));
-                return;
-            }
-
+        if (spot != null)
+        {
+            performingAction = true;
+            StartCoroutine(PerformASpotTimer(spot));
+            return;
         }
     }
 
