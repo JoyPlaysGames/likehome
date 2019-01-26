@@ -36,4 +36,5 @@ public class TaskConfig
     public TaskKind kind;
     public Sprite icon;
     public GameObject prefab;
+    public float performingTime = 3f;
 }

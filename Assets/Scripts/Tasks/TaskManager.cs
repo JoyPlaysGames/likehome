@@ -54,30 +54,30 @@ public class TaskManager : MonoBehaviour
     IEnumerator InstantiateTask(float delay)
     {
         yield return new WaitForSeconds(delay);
-        LevelTask task = GetUnfinishedTask();
-        if (task != null)
+        LevelTask levelTask = GetUnfinishedTask();
+        if (levelTask != null)
         {
-            openTasks.Add(task.id, task);
+            openTasks.Add(levelTask.id, levelTask);
             GameObject t = Instantiate(The.gameGui.taskItem, Vector3.zero, Quaternion.identity);
             t.transform.parent = The.gameGui.taskParent.transform;
             t.transform.localScale = Vector3.one;
-            t.GetComponent<TaskContainer>().Sync(task);
-            taskUiCards.Add(task.id, t.GetComponent<TaskContainer>());
+            t.GetComponent<TaskContainer>().Sync(levelTask);
+            taskUiCards.Add(levelTask.id, t.GetComponent<TaskContainer>());
             currentTaskCount++;
-            if(task.task != TaskKind.None)
+            if(levelTask.taskKind != TaskKind.None)
             {
-                CreateAndAssignTaskInScene(task.id, task.task);
+                CreateAndAssignTaskInScene(levelTask);
             }
 
         }
     }
 
-    void CreateAndAssignTaskInScene(int id, TaskKind kind)
+    void CreateAndAssignTaskInScene(LevelTask levelTask)
     {
         List<TaskEnviromentSpot> listToUse = new List<TaskEnviromentSpot>();
-        foreach(TaskEnviromentSpot spot in taskSpots)
+        foreach(TaskEnviromentSpot enviromentSpot in taskSpots)
         {
-            if (spot.kind == kind) listToUse.Add(spot);
+            if (enviromentSpot.kind == levelTask.taskKind && enviromentSpot.taskId >= 0) listToUse.Add(enviromentSpot);
         }
         for (int i = 0; i < listToUse.Count; i++)
         {
@@ -88,7 +88,7 @@ public class TaskManager : MonoBehaviour
         }
         if (listToUse.Count == 0) Debug.LogError("TASKMANAGER: no task spots for needed task kind!");
 
-        listToUse[0].SetActive(id);
+        listToUse[0].SetActiveEnviromentTask(levelTask);
     }
 
     LevelTask GetUnfinishedTask()
@@ -98,6 +98,15 @@ public class TaskManager : MonoBehaviour
             if (!task.completed && !openTasks.ContainsKey(task.id)) return task;
         }
         return null;
+    }
+
+    public void FailEnviromentTaskSpot(int id)
+    {
+        for(int i = 0; i < taskSpots.Count; i++)
+        {
+            if (taskSpots[i].taskId == id) taskSpots[i].FailAndResetTask();
+            break;
+        }
     }
 
     public void FailTask(int id)
@@ -193,8 +202,8 @@ public class LevelConfig
 [Serializable]
 public class LevelTask
 {
-    public RecipieKind recipie;
-    public TaskKind task;
+    public RecipieKind recipieKind;
+    public TaskKind taskKind;
     public int rewardPoints = 0;
     public int failPoints = 0;
     public float time;

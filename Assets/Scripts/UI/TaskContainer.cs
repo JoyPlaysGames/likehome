@@ -32,9 +32,9 @@ public class TaskContainer : MonoBehaviour
 
         rewardText.text = task.rewardPoints.ToString();
 
-        if(task.task != TaskKind.None)
+        if(task.taskKind != TaskKind.None)
         {
-            taskImage.sprite = The.tasks.GetTaskByKind(task.task).icon;
+            taskImage.sprite = The.tasks.GetTaskByKind(task.taskKind).icon;
         } else
         {
             taskImage.sprite = The.gameGui.recipieIcon;
@@ -63,6 +63,7 @@ public class TaskContainer : MonoBehaviour
         {
             active = false;
             The.taskManager.FailTask(id);
+            The.taskManager.FailEnviromentTaskSpot(id);
             Fail();
         }
     }

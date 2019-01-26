@@ -21,6 +21,8 @@ public class Player : MonoBehaviour {
 
 	public static Player _instance;
 
+    bool performingAction = false;
+
 	private void Awake()
 	{
 		if(_instance == null)
@@ -37,6 +39,8 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+        if (performingAction) return;
+
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 
@@ -103,4 +107,47 @@ public class Player : MonoBehaviour {
 	{
 		visibleObject = null;
 	}
+    private void Update()
+    {
+        if (performingAction) return; 
+
+        CheckInteractableObjects();
+    }
+
+    void CheckInteractableObjects()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TaskEnviromentSpot spot = null;
+            float d = 7f;
+            for (int i = 0; i < The.taskManager.taskSpots.Count; i++)
+            {
+                TaskEnviromentSpot s = The.taskManager.taskSpots[i];
+                Debug.Log(Vector3.Distance(transform.localPosition, s.transform.localPosition));
+                Debug.Log(transform.localPosition);
+                Debug.Log(s.transform.localPosition);
+                if (Vector3.Distance(transform.localPosition, s.transform.localPosition) < d && s.taskId >= 0)
+                {
+                    spot = s; break;
+                }
+            }
+
+            if (spot != null)
+            {
+                performingAction = true;
+                StartCoroutine(PerformASpotTimer(spot));
+                return;
+            }
+
+        }
+    }
+
+    
+
+    IEnumerator PerformASpotTimer(TaskEnviromentSpot spot)
+    {
+        yield return new WaitForSeconds(3f);
+        performingAction = false;
+        spot.FinishTask();
+    }
 }
