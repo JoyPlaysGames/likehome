@@ -71,7 +71,9 @@ public class Player : MonoBehaviour {
 			{
 				Item visibleItem = visibleObject.GetComponent<Item>();
 				Table visibleTable = visibleObject.GetComponent<Table>();
-				if (visibleItem == null)
+				TaskEnviromentSpot visibleSpot = visibleObject.GetComponent<TaskEnviromentSpot>();
+
+				if (visibleItem == null && visibleSpot == null)
 				{
 					visibleItem = visibleTable.item;
 				}
@@ -98,9 +100,12 @@ public class Player : MonoBehaviour {
 					visibleTable.item = item;
 					item = null;
 				}
-			}else if(item == null)
-			{
-				CheckInteractableObjects();
+
+				if (item == null && visibleSpot != null)
+				{
+					performingAction = true;
+					StartCoroutine(PerformASpotTimer(visibleSpot));
+				}
 			}
 		}
 	}
@@ -114,38 +119,6 @@ public class Player : MonoBehaviour {
 	{
 		visibleObject = null;
 	}
-    private void Update()
-    {
-        if (performingAction) return; 
-
-        //CheckInteractableObjects();
-    }
-
-    void CheckInteractableObjects()
-    {
-        TaskEnviromentSpot spot = null;
-        float d = 5f;
-        for (int i = 0; i < The.taskManager.taskSpots.Count; i++)
-        {
-            TaskEnviromentSpot s = The.taskManager.taskSpots[i];
-            Debug.Log(Vector3.Distance(transform.localPosition, s.transform.localPosition));
-            Debug.Log(transform.localPosition);
-            Debug.Log(s.transform.localPosition);
-            if (Vector3.Distance(usabilityFignja.transform.localPosition, s.transform.localPosition) < d && s.taskId >= 0)
-            {
-                spot = s; break;
-            }
-        }
-
-        if (spot != null)
-        {
-            performingAction = true;
-            StartCoroutine(PerformASpotTimer(spot));
-            return;
-        }
-    }
-
-    
 
     IEnumerator PerformASpotTimer(TaskEnviromentSpot spot)
     {
