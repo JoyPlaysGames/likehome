@@ -2,6 +2,9 @@
 
 public class Player : MonoBehaviour {
 
+	[SerializeField] GameObject playerModel;
+	[SerializeField] Animator playerAnimator;
+
 	public static bool actionButtonPressed = false;
 	public static bool hasItem = false;
 
@@ -25,14 +28,25 @@ public class Player : MonoBehaviour {
 
 		float realTimeSpeed = Time.deltaTime * speed;
 		transform.Translate(movement * realTimeSpeed);
-		hands.transform.position = transform.position;
 
-		if(hands.GetComponentInChildren<Item>())
+		if (movement != Vector3.zero)
+		{
+			playerAnimator.SetFloat("Move", 1f);
+			playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, Quaternion.LookRotation(movement), 0.15F);
+		}
+		else
+		{
+			playerAnimator.SetFloat("Move", 0f);
+		}
+
+		if (hands.GetComponentInChildren<Item>())
 		{
 			hasItem = true;
 		}
 
-		if(Input.GetKeyDown(KeyCode.F))
+		
+
+		if (Input.GetKeyDown(KeyCode.F))
 		{
 			actionButtonPressed = true;
 		}
@@ -46,10 +60,11 @@ public class Player : MonoBehaviour {
 		{
 			item = collision.gameObject.GetComponentInChildren<Item>();
 			item.transform.SetParent(hands.transform);
-			item.transform.position = new Vector3 (hands.transform.position.x + 1f, hands.transform.position.y + 0.1f, hands.transform.position.z);
+			item.transform.position = new Vector3 (hands.transform.position.x, hands.transform.position.y, hands.transform.position.z);
 			table.slotIsEmpty = true;
 			hasItem = true;
 			actionButtonPressed = false;
+			playerAnimator.SetTrigger("PickItem");
 		}
 		else if (table && table.slotIsEmpty && actionButtonPressed && hasItem)
 		{
@@ -59,6 +74,7 @@ public class Player : MonoBehaviour {
 			table.slotIsEmpty = false;
 			hasItem = false;
 			actionButtonPressed = false;
+			playerAnimator.SetTrigger("PlaceItem");
 		}
 	}
 }
