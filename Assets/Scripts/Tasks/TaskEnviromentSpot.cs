@@ -7,7 +7,6 @@ public class TaskEnviromentSpot : MonoBehaviour
     public TaskKind kind;
     public GameObject taskActive;
     public GameObject taskIdle;
-    [HideInInspector]
     public int taskId = -1;
     public float actionTime;
     float currentTime;

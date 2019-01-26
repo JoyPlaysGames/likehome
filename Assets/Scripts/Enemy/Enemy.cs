@@ -35,6 +35,11 @@ public class Enemy : MonoBehaviour
         {
             currTarget = FindWaypoint();
         }
+        Vector3 targetDir = currTarget - transform.position;
+        float step = 2f * Time.deltaTime;
+
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
     }
 
     Vector3 FindWaypoint()
