@@ -51,6 +51,11 @@ public class TaskManager : MonoBehaviour
         StartCoroutine(InstantiateTask(0.9f));
     }
 
+    /// <summary>
+    /// Create any yet unfinished task from levels tasklist and does a full setup for both classes, visuals, ui
+    /// </summary>
+    /// <param name="delay">Initial delay for doing that</param>
+    /// <returns></returns>
     IEnumerator InstantiateTask(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -70,7 +75,10 @@ public class TaskManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Finds a free stask spot in scene and assign selected level task to it
+    /// </summary>
+    /// <param name="levelTask">Currently selected level task</param>
     void CreateAndAssignTaskInScene(LevelTask levelTask)
     {
         List<TaskEnviromentSpot> listToUse = new List<TaskEnviromentSpot>();
@@ -78,12 +86,7 @@ public class TaskManager : MonoBehaviour
         {
             if (enviromentSpot.kind == levelTask.taskKind && enviromentSpot.taskId < 0) listToUse.Add(enviromentSpot);
         }
-        Debug.Log(listToUse.Count);
         listToUse[UnityEngine.Random.Range(0, listToUse.Count)].SetActiveEnviromentTask(levelTask);
-
-        //if (listToUse.Count == 0) Debug.LogError("TASKMANAGER: no task spots for needed task kind!");
-
-        //listToUse[0].SetActiveEnviromentTask(levelTask);
     }
 
     LevelTask GetUnfinishedTask()
@@ -94,16 +97,26 @@ public class TaskManager : MonoBehaviour
         }
         return null;
     }
-
+    /// <summary>
+    /// Resets enviroment task spot and marks it as done
+    /// </summary>
+    /// <param name="id">Task id from current level tasklist</param>
     public void FailEnviromentTaskSpot(int id)
     {
         for(int i = 0; i < taskSpots.Count; i++)
         {
-            if (taskSpots[i].taskId == id) taskSpots[i].FailAndResetTask();
-            break;
+            if (taskSpots[i].taskId == id)
+            {
+                taskSpots[i].FailAndResetTask();
+                break;
+            }
         }
     }
 
+    /// <summary>
+    /// Fails a task is timer has ran out to do it
+    /// </summary>
+    /// <param name="id">Task id from current level tasklist</param>
     public void FailTask(int id)
     {
         openTasks[id].completed = true;
@@ -112,6 +125,11 @@ public class TaskManager : MonoBehaviour
         StartCoroutine(InstantiateTask(3.3f));
         CheckLevelFinished();
     }
+
+    /// <summary>
+    /// Finish successful task, reward player and remove from current queue
+    /// </summary>
+    /// <param name="id">Task id from current level task list</param>
     public void FinishTask(int id)
     {
         openTasks[id].completed = true;
@@ -121,6 +139,7 @@ public class TaskManager : MonoBehaviour
         StartCoroutine(InstantiateTask(3.3f));
         CheckLevelFinished();
     }
+
 
     private void FixedUpdate()
     {

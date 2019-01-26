@@ -27,6 +27,7 @@ public class TaskEnviromentSpot : MonoBehaviour
 
     public void FinishTask()
     {
+        if (taskId == -1) return;
         taskIdle.SetActive(true);
         taskActive.SetActive(false);
         The.taskManager.FinishTask(taskId);
