@@ -44,23 +44,22 @@ public class Player : MonoBehaviour {
 			hasItem = true;
 		}
 
-		
-
 		if (Input.GetKeyDown(KeyCode.F))
 		{
 			actionButtonPressed = true;
 		}
 	}
 
-	private void OnCollisionStay(Collision collision)
+	private void OnTriggerStay(Collider other)
 	{
-		Table table = collision.gameObject.GetComponent<Table>();
+		Table table = other.gameObject.GetComponent<Table>();
 
 		if (table && actionButtonPressed && !table.slotIsEmpty && !hasItem)
 		{
-			item = collision.gameObject.GetComponentInChildren<Item>();
+			item = other.gameObject.GetComponentInChildren<Item>();
 			item.transform.SetParent(hands.transform);
 			item.transform.position = new Vector3 (hands.transform.position.x, hands.transform.position.y, hands.transform.position.z);
+			item.transform.position = new Vector3(hands.transform.position.x, hands.transform.position.y, hands.transform.position.z);
 			table.slotIsEmpty = true;
 			hasItem = true;
 			actionButtonPressed = false;
