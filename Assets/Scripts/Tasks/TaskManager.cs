@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
+    int score = 0;
 
     int currentLevel = 0;
     public List<LevelConfig> levels;
@@ -30,6 +31,7 @@ public class TaskManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        The.gameGui.levelScore.text = score.ToString();
         StartLevel();
     }
 
@@ -49,18 +51,22 @@ public class TaskManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         LevelTask task = GetUnfinishedTask();
-        if(task != null)
+        if (task != null)
         {
             openTasks.Add(task.id, task);
             GameObject t = Instantiate(The.gameGui.taskItem, Vector3.zero, Quaternion.identity);
             t.transform.parent = The.gameGui.taskParent.transform;
             t.transform.localScale = Vector3.one;
             t.GetComponent<TaskContainer>().Sync(task);
+            currentTaskCount++;
         }
-
-        currentTaskCount++;
+        else
+        {
+            ProcessLevelEnd();
+        }
         if (currentTaskCount < maxTaskCount && task != null)
             StartCoroutine("InstantiateTask");
+
     }
 
     LevelTask GetUnfinishedTask()
@@ -74,7 +80,9 @@ public class TaskManager : MonoBehaviour
 
     public void FailTask(int id)
     {
-
+        openTasks[id].completed = true;
+        score -= openTasks[id].failPoints;
+        The.gameGui.levelScore.text = score.ToString();
     }
 
     private void FixedUpdate()
@@ -111,6 +119,7 @@ public class LevelTask
     public RecipieKind recipie;
     public TaskKind task;
     public int rewardPoints = 0;
+    public int failPoints = 0;
     public float time;
 
     [HideInInspector]
