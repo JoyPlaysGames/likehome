@@ -20,6 +20,13 @@ public class Task : MonoBehaviour
         The.tasks = this;
     }
 
+    public TaskConfig GetTaskByKind(TaskKind kind)
+    {
+        foreach(TaskConfig task in taskConfig) {
+            if (task.kind == kind) return task;
+        }
+        return null;
+    }
 }
 
 

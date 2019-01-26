@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
@@ -11,10 +12,16 @@ public class TaskManager : MonoBehaviour
     Dictionary<int, LevelTask> openTasks = new Dictionary<int, LevelTask>();
 
     LevelConfig level;
+
     public bool gameFinished = false;
     int currentTaskCount = 0;
     int maxTaskCount = 3;
     int currentTaskId = 0;
+
+    bool active = true;
+
+    float levelTime;
+    Text levelTimeText;
 
     private void Awake()
     {
@@ -23,7 +30,18 @@ public class TaskManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartLevel();
+    }
+
+    void StartLevel()
+    {
         level = levels[currentLevel];
+        for(int i = 0; i < level.tasks.Count; i++)
+        {
+            level.tasks[i].id = i;
+        }
+        levelTime = level.time;
+        levelTimeText = The.gameGui.levelTimer;
         StartCoroutine(InstantiateTask());
     }
 
@@ -33,12 +51,11 @@ public class TaskManager : MonoBehaviour
         LevelTask task = GetUnfinishedTask();
         if(task != null)
         {
-            openTasks.Add(currentTaskId, task);
+            openTasks.Add(task.id, task);
             GameObject t = Instantiate(The.gameGui.taskItem, Vector3.zero, Quaternion.identity);
             t.transform.parent = The.gameGui.taskParent.transform;
             t.transform.localScale = Vector3.one;
-            t.GetComponent<TaskContainer>().Sync(currentTaskId, task);
-            currentTaskId++;
+            t.GetComponent<TaskContainer>().Sync(task);
         }
 
         currentTaskCount++;
@@ -50,12 +67,32 @@ public class TaskManager : MonoBehaviour
     {
         foreach(LevelTask task in level.tasks)
         {
-            if (!task.completed) return task;
+            if (!task.completed && !openTasks.ContainsKey(task.id)) return task;
         }
         return null;
     }
 
     public void FailTask(int id)
+    {
+
+    }
+
+    private void FixedUpdate()
+    {
+        if (!active) return; 
+
+        if (levelTime > 0)
+        {
+            levelTime -= Time.deltaTime;
+            levelTimeText.text = Mathf.Round(levelTime).ToString();
+        }
+        else
+        {
+
+        }
+    }
+
+    void ProcessLevelEnd()
     {
 
     }
@@ -78,4 +115,6 @@ public class LevelTask
 
     [HideInInspector]
     public bool completed;
+    [HideInInspector]
+    public int id;
 }
