@@ -127,6 +127,7 @@ public class Player : MonoBehaviour {
 
 				if (item == null && visibleSpot != null && !potInHand)
 				{
+                    if (visibleSpot.taskId < 0) return;
 					performingAction = true;
 					StartCoroutine(PerformASpotTimer(visibleSpot));
 				}
