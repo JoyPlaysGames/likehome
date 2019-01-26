@@ -159,7 +159,10 @@ public class Player : MonoBehaviour {
 
     IEnumerator PerformASpotTimer(TaskEnviromentSpot spot)
     {
-		playerBroom.SetActive(true);
+		if(spot.kind == TaskKind.FloorMop)
+		{
+			playerBroom.SetActive(true);
+		}
 		playerAnimator.SetTrigger("SweepFloor");
 		yield return new WaitForSeconds(3f);
         performingAction = false;
@@ -175,7 +178,7 @@ public class Player : MonoBehaviour {
 			{
 				StartCoroutine(DoorMechanism(true));
 			}
-			if (doorClosed)
+			else
 			{
 				StartCoroutine(DoorMechanism(false));
 			}

@@ -61,6 +61,20 @@ Transform:
   m_Father: {fileID: 6938398816548847793}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &207216571
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3177663119192761376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 2.95
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.54, z: 0}
 --- !u!95 &7006418953288766472
 Animator:
   serializedVersion: 3
@@ -93,20 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameObject: {fileID: 3177663119192761390}
---- !u!136 &207216571
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3177663119192761376}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.74
-  m_Height: 2.95
-  m_Direction: 1
-  m_Center: {x: 0, y: 2.54, z: 0}
 --- !u!1 &4375281144303913099
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +220,7 @@ MonoBehaviour:
   houseAnimator: {fileID: 0}
   playerBroom: {fileID: 3177663119192761390}
   usabilityFignja: {fileID: 0}
+  potInHand: 0
   hands: {fileID: 5172950825887382294}
   speed: 10
   item: {fileID: 0}
