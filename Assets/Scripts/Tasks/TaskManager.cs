@@ -76,7 +76,7 @@ public class TaskManager : MonoBehaviour
         List<TaskEnviromentSpot> listToUse = new List<TaskEnviromentSpot>();
         foreach(TaskEnviromentSpot enviromentSpot in taskSpots)
         {
-            if (enviromentSpot.kind == levelTask.taskKind && enviromentSpot.taskId >= 0) listToUse.Add(enviromentSpot);
+            if (enviromentSpot.kind == levelTask.taskKind && enviromentSpot.taskId < 0) listToUse.Add(enviromentSpot);
         }
         for (int i = 0; i < listToUse.Count; i++)
         {

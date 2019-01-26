@@ -5,9 +5,11 @@ public class Player : MonoBehaviour {
 
 	[SerializeField] GameObject playerModel;
 	[SerializeField] Animator playerAnimator;
+	[SerializeField] Animator houseAnimator;
 	[SerializeField] GameObject playerBroom;
 	public GameObject usabilityFignja;
 	private bool iAmAttacking;
+	private bool doorClosed = true;
 
 	public static bool actionButtonPressed = false;
 	private bool animationPick = false;
@@ -78,13 +80,13 @@ public class Player : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.F))
 		{
-			if (visibleObject != null)
+			if (visibleObject != null && visibleObject.tag != "Door")
 			{
 				Item visibleItem = visibleObject.GetComponent<Item>();
 				Table visibleTable = visibleObject.GetComponent<Table>();
 				TaskEnviromentSpot visibleSpot = visibleObject.GetComponent<TaskEnviromentSpot>();
 
-				if (visibleItem == null && visibleSpot == null)
+				if (visibleItem == null && visibleSpot == null && visibleTable != null)
 				{
 					visibleItem = visibleTable.item;
 				}
@@ -151,4 +153,36 @@ public class Player : MonoBehaviour {
 		playerBroom.SetActive(false);
         spot.FinishTask();
     }
+
+	private void OnTriggerStay(Collider other)
+	{
+		if (Input.GetKeyDown(KeyCode.F) && other.CompareTag("Door"))
+		{
+			if (doorClosed)
+			{
+				StartCoroutine(DoorMechanism(true));
+			}
+			if (doorClosed)
+			{
+				StartCoroutine(DoorMechanism(false));
+			}
+		}
+	}
+
+	IEnumerator DoorMechanism(bool check)
+	{
+		if (check)
+		{
+			houseAnimator.SetTrigger("OpenDoor");
+			yield return new WaitForSeconds(1f);
+			doorClosed = false;
+		}
+		
+		else 
+		{
+			houseAnimator.SetTrigger("CloseDoor");
+			yield return new WaitForSeconds(1f);
+			doorClosed = true;
+		}
+	}
 }
