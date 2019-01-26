@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class RecipieMixPot : Table
 {
-    public Dictionary<IngredientKind, int> ingredients;
+    public Dictionary<IngredientKind, int> ingredients = new Dictionary<IngredientKind, int>();
 
+	void Start()
+	{
+		if (mixtureTable)
+		{
+			pot.SetActive(true);
+		}	
+	}
 
-    public void TakeIngredient(Item item)
+	public void TakeIngredient(Item item)
     {
         if(ingredients.ContainsKey(item.kind))
         {
@@ -17,7 +24,8 @@ public class RecipieMixPot : Table
         {
             ingredients.Add(item.kind, 1);
         }
-        Destroy(item.transform.gameObject);
+		Debug.Log(ingredients[item.kind]);
+		Destroy(item.transform.gameObject);
     }
 
     public override void TakeItem(Item item)

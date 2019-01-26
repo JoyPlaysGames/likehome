@@ -172,22 +172,22 @@ public class TaskManager : MonoBehaviour
     public void ConsumeRecipie(Dictionary<IngredientKind, int> items)
     {
         RecipieKind r = The.recipies.DoesRecipieExistByIngredients(items);
-        if(r != RecipieKind.None)
-        {
-            int id = IsRecipieAnActualTask(r);
-            if(id >= 0)
-            {
-                FinishTask(id);
-            }
-            else
-            {
-                BadRecipieConsumed();
-            }
-        }
-        else
-        {
-            BadRecipieConsumed();
-        }
+		if (r != RecipieKind.None)
+		{
+			int id = IsRecipieAnActualTask(r);
+			if (id >= 0)
+			{
+				FinishTask(id);
+			}
+			else
+			{
+				BadRecipieConsumed();
+			}
+		}
+		else
+		{
+			BadRecipieConsumed();
+		}
     }
 
     void BadRecipieConsumed()

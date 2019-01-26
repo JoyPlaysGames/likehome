@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] GameObject playerBroom;
 	public GameObject usabilityFignja;
 	private bool iAmAttacking;
+	public bool potInHand = false;
 	private bool doorClosed = true;
 
 	public static bool actionButtonPressed = false;
@@ -85,13 +86,14 @@ public class Player : MonoBehaviour {
 				Item visibleItem = visibleObject.GetComponent<Item>();
 				Table visibleTable = visibleObject.GetComponent<Table>();
 				TaskEnviromentSpot visibleSpot = visibleObject.GetComponent<TaskEnviromentSpot>();
+				Pot visiblePot = visibleObject.GetComponentInChildren<Pot>();
 
-				if (visibleItem == null && visibleSpot == null && visibleTable != null)
+				if (visibleItem == null && visibleSpot == null && visiblePot == null && visibleTable != null)
 				{
 					visibleItem = visibleTable.item;
 				}
 
-				if (item == null && visibleItem != null)
+				if (item == null && visibleItem != null && !potInHand)
 				{
 					item = visibleItem;
 					item.transform.SetParent(hands.transform);
@@ -105,7 +107,7 @@ public class Player : MonoBehaviour {
 					return;
 				}
 
-				if (item != null && visibleTable != null && visibleTable.item == null)
+				if (item != null && visibleTable != null && visibleTable.item == null && !potInHand)
 				{
 					item.transform.SetParent(visibleTable.itemSlot.transform);
 					item.transform.position = visibleTable.itemSlot.transform.position;
@@ -115,7 +117,15 @@ public class Player : MonoBehaviour {
                     item = null;
 				}
 
-				if (item == null && visibleSpot != null)
+				if(visibleTable != null && item == null && visiblePot != null)
+				{
+					visiblePot.gameObject.transform.SetParent(hands.transform);
+					visiblePot.gameObject.transform.position = hands.transform.position;
+					visibleTable.GetComponent<RecipieMixPot>().ingredients = visiblePot.ingredients;
+					potInHand = true;
+				}
+
+				if (item == null && visibleSpot != null && !potInHand)
 				{
 					performingAction = true;
 					StartCoroutine(PerformASpotTimer(visibleSpot));

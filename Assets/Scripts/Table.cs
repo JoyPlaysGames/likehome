@@ -7,9 +7,9 @@ public class Table : MonoBehaviour {
 	public bool mixtureTable = false;
 
 	public GameObject itemSlot = null;
-	public Item item = null;
+	public GameObject pot = null;
 
-	public int tableItemSlots = 3;
+	public Item item = null;
 
 	// Use this for initialization
 	void Start () {
@@ -17,8 +17,14 @@ public class Table : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
-		if(!GetComponentInChildren<Item>())
+	void FixedUpdate ()
+	{
+		CheckItem();
+	}
+
+	private void CheckItem()
+	{
+		if (!GetComponentInChildren<Item>())
 		{
 			item = null;
 		}
@@ -28,12 +34,7 @@ public class Table : MonoBehaviour {
 		}
 	}
 
-	private void CreateItemSlots()
-	{
-		
-	}
-
-    public virtual void TakeItem(Item newItem)
+	public virtual void TakeItem(Item newItem)
     {
         item = newItem;
     }
