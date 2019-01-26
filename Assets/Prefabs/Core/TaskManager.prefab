@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - tasks:
+  - time: 600
+    minScoreToWin: 0
+    tasks:
     - recipie: 1
       task: 0
       rewardPoints: 50
@@ -80,5 +82,7 @@ MonoBehaviour:
       time: 25
       completed: 0
       id: 0
-    time: 600
   gameFinished: 0
+  taskSpots:
+  - {fileID: 0}
+  - {fileID: 0}

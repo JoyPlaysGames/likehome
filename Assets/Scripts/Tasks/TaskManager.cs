@@ -16,6 +16,8 @@ public class TaskManager : MonoBehaviour
     LevelConfig level;
 
     public bool gameFinished = false;
+
+    public List<TaskEnviromentSpot> taskSpots;
     int currentTaskCount = 0;
     int maxTaskCount = 3;
 
@@ -37,7 +39,6 @@ public class TaskManager : MonoBehaviour
 
     void StartLevel()
     {
-
         level = levels[currentLevel];
         for(int i = 0; i < level.tasks.Count; i++)
         {
@@ -63,7 +64,31 @@ public class TaskManager : MonoBehaviour
             t.GetComponent<TaskContainer>().Sync(task);
             taskUiCards.Add(task.id, t.GetComponent<TaskContainer>());
             currentTaskCount++;
+            if(task.task != TaskKind.None)
+            {
+                CreateAndAssignTaskInScene(task.id, task.task);
+            }
+
         }
+    }
+
+    void CreateAndAssignTaskInScene(int id, TaskKind kind)
+    {
+        List<TaskEnviromentSpot> listToUse = new List<TaskEnviromentSpot>();
+        foreach(TaskEnviromentSpot spot in taskSpots)
+        {
+            if (spot.kind == kind) listToUse.Add(spot);
+        }
+        for (int i = 0; i < listToUse.Count; i++)
+        {
+            TaskEnviromentSpot temp = listToUse[i];
+            int randomIndex = UnityEngine.Random.Range(i, listToUse.Count);
+            listToUse[i] = listToUse[randomIndex];
+            listToUse[randomIndex] = temp;
+        }
+        if (listToUse.Count == 0) Debug.LogError("TASKMANAGER: no task spots for needed task kind!");
+
+        listToUse[0].SetActive(id);
     }
 
     LevelTask GetUnfinishedTask()
