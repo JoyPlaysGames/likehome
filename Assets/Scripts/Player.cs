@@ -5,6 +5,8 @@ public class Player : MonoBehaviour {
 
 	[SerializeField] GameObject playerModel;
 	[SerializeField] Animator playerAnimator;
+	[SerializeField] GameObject playerBroom;
+	public GameObject usabilityFignja;
 
 	public static bool actionButtonPressed = false;
 	private bool animationPick = false;
@@ -51,7 +53,7 @@ public class Player : MonoBehaviour {
 		if (movement != Vector3.zero)
 		{
 			playerAnimator.SetFloat("Move", 1f);
-			playerModel.transform.rotation = Quaternion.Slerp(playerModel.transform.rotation, Quaternion.LookRotation(movement), 0.15F);
+			playerModel.transform.rotation = Quaternion.Slerp(new Quaternion (0f, playerModel.transform.rotation.y, playerModel.transform.rotation.z, playerModel.transform.rotation.w), Quaternion.LookRotation(movement), 0.15F);
 		}
 		else
 		{
@@ -122,14 +124,14 @@ public class Player : MonoBehaviour {
     void CheckInteractableObjects()
     {
         TaskEnviromentSpot spot = null;
-        float d = 7f;
+        float d = 5f;
         for (int i = 0; i < The.taskManager.taskSpots.Count; i++)
         {
             TaskEnviromentSpot s = The.taskManager.taskSpots[i];
             Debug.Log(Vector3.Distance(transform.localPosition, s.transform.localPosition));
             Debug.Log(transform.localPosition);
             Debug.Log(s.transform.localPosition);
-            if (Vector3.Distance(transform.localPosition, s.transform.localPosition) < d && s.taskId >= 0)
+            if (Vector3.Distance(usabilityFignja.transform.localPosition, s.transform.localPosition) < d && s.taskId >= 0)
             {
                 spot = s; break;
             }
@@ -147,8 +149,11 @@ public class Player : MonoBehaviour {
 
     IEnumerator PerformASpotTimer(TaskEnviromentSpot spot)
     {
-        yield return new WaitForSeconds(3f);
+		playerBroom.SetActive(true);
+		playerAnimator.SetTrigger("SweepFloor");
+		yield return new WaitForSeconds(3f);
         performingAction = false;
+		playerBroom.SetActive(false);
         spot.FinishTask();
     }
 }
