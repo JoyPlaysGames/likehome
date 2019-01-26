@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
-			if (!iAmAttacking)
+			if (!iAmAttacking && item == null)
 			{
 				StartCoroutine("Attack");
 			}
@@ -130,8 +130,6 @@ public class Player : MonoBehaviour {
 	{
 		visibleObject = null;
 	}
-
-    }
 
 	IEnumerator Attack()
 	{
