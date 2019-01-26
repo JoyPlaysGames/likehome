@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
 	[SerializeField] GameObject playerModel;
-	[SerializeField] Animator playerAnimator;
+	public Animator playerAnimator;
 	[SerializeField] Animator houseAnimator;
 	[SerializeField] GameObject playerBroom;
 	public GameObject usabilityFignja;
@@ -51,8 +51,7 @@ public class Player : MonoBehaviour {
 			if (!iAmAttacking && item == null)
 			{
 				StartCoroutine("Attack");
-			}
-			
+			}	
 		}
 
         if (performingAction) return;
@@ -80,7 +79,7 @@ public class Player : MonoBehaviour {
 
 	private void Interaction()
 	{
-		if(Input.GetKeyDown(KeyCode.F))
+		if (Input.GetKeyDown(KeyCode.F))
 		{
 			if (visibleObject != null && visibleObject.tag != "Door")
 			{
@@ -113,7 +112,6 @@ public class Player : MonoBehaviour {
 					item.transform.SetParent(visibleTable.itemSlot.transform);
 					item.transform.position = visibleTable.itemSlot.transform.position;
 					playerAnimator.SetTrigger("PlaceItem");
-                    //visibleTable.item = item;
                     visibleTable.TakeItem(item);
                     item = null;
                     return;
@@ -122,9 +120,10 @@ public class Player : MonoBehaviour {
 				if(visibleTable != null && item == null && visiblePot != null)
 				{
 					visiblePot.gameObject.transform.SetParent(hands.transform);
-					visiblePot.gameObject.transform.position = hands.transform.position;
-                    visiblePot.ingredients = visibleTable.GetComponent<RecipieMixPot>().ingredients;
-                    potInHand = true;
+					visiblePot.gameObject.transform.position = visiblePot.startingLocation;
+					playerAnimator.SetTrigger("PickItem");
+					visiblePot.ingredients = visibleTable.GetComponent<RecipieMixPot>().ingredients;
+					potInHand = true;
 				}
 
 				if (item == null && visibleSpot != null && !potInHand)

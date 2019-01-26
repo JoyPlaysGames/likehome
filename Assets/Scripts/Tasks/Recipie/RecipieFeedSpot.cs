@@ -8,6 +8,7 @@ public class RecipieFeedSpot : MonoBehaviour
     public void ConsumeRecipie(Dictionary<IngredientKind, int> ingredients)
     {
 		Player._instance.potInHand = false;
-        The.taskManager.ConsumeRecipie(ingredients);
+		Player._instance.playerAnimator.SetTrigger("PlaceItem");
+		The.taskManager.ConsumeRecipie(ingredients);
     }
 }
