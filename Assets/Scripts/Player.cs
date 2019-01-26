@@ -58,7 +58,6 @@ public class Player : MonoBehaviour {
 		{
 			item = other.gameObject.GetComponentInChildren<Item>();
 			item.transform.SetParent(hands.transform);
-			item.transform.position = new Vector3 (hands.transform.position.x, hands.transform.position.y, hands.transform.position.z);
 			item.transform.position = new Vector3(hands.transform.position.x, hands.transform.position.y, hands.transform.position.z);
 			table.slotIsEmpty = true;
 			hasItem = true;
@@ -68,6 +67,7 @@ public class Player : MonoBehaviour {
 		else if (table && table.slotIsEmpty && actionButtonPressed && hasItem)
 		{
 			item.transform.SetParent(table.itemSlot.transform);
+			item.transform.rotation = Quaternion.identity;
 			float itemSize = item.transform.localScale.x / 2;
 			item.transform.position = new Vector3(table.itemSlot.transform.position.x, table.itemSlot.transform.position.y + itemSize, table.itemSlot.transform.position.z);
 			table.slotIsEmpty = false;
