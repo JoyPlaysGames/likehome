@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class Player : MonoBehaviour {
 
@@ -7,23 +8,35 @@ public class Player : MonoBehaviour {
 	[SerializeField] Animator playerAnimator;
 
 	public static bool actionButtonPressed = false;
-	public static bool hasItem = false;
 	private bool animationPick = false;
 	private bool animationPlace = false;
 
-	[SerializeField] GameObject hands = null;
- 
+	public GameObject hands = null;
+
 	[SerializeField] float speed = 10f;
 
-	private Item item = null;
+	public Item item = null;
+
+	private GameObject visibleObject;
+
+	public static Player _instance;
+
+	private void Awake()
+	{
+		if(_instance == null)
+		{
+			_instance = this; 
+		}
+	}
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start() {
+
 	}
-	
+
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate()
+	{
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 
@@ -42,40 +55,52 @@ public class Player : MonoBehaviour {
 			playerAnimator.SetFloat("Move", 0f);
 		}
 
-		if (hands.GetComponentInChildren<Item>())
-		{
-			hasItem = true;
-		}
-		
+		Interaction();
 	}
 
-	private void OnTriggerStay(Collider other)
+	private void Interaction()
 	{
-		Table table = other.gameObject.GetComponent<Table>();
-
-		if (Input.GetKeyDown(KeyCode.F))
+		if (Input.GetKeyDown(KeyCode.F) && visibleObject != null)
 		{
-			if (table && !table.slotIsEmpty && !hasItem)
+			Item visibleItem = visibleObject.GetComponent<Item>();
+			Table visibleTable = visibleObject.GetComponent<Table>();
+			if(visibleItem == null)
 			{
-				item = other.gameObject.GetComponentInChildren<Item>();
-				item.transform.SetParent(hands.transform);
-				item.transform.position = new Vector3(hands.transform.position.x, hands.transform.position.y, hands.transform.position.z);
-				table.slotIsEmpty = true;
-				hasItem = true;
-				playerAnimator.SetTrigger("PickItem");
-				Debug.Log("Item Picked");
+				visibleItem = visibleTable.item;
 			}
-			else if (table && table.slotIsEmpty && hasItem)
+
+			if (item == null && visibleItem != null)
 			{
-				item.transform.SetParent(table.itemSlot.transform);
-				item.transform.rotation = Quaternion.identity;
-				float itemSize = item.transform.localScale.x / 2;
-				item.transform.position = new Vector3(table.itemSlot.transform.position.x, table.itemSlot.transform.position.y + itemSize, table.itemSlot.transform.position.z);
-				table.slotIsEmpty = false;
-				hasItem = false;
+				item = visibleItem;
+				item.transform.SetParent(hands.transform);
+				item.transform.position = hands.transform.position;
+				playerAnimator.SetTrigger("PickItem");
+				visibleItem = null;
+				if(visibleTable != null)
+				{
+					visibleTable.item = null;
+				}
+				return;
+			}
+
+			if (item != null && visibleTable != null && visibleTable.item == null)
+			{
+				item.transform.SetParent(visibleTable.itemSlot.transform);
+				item.transform.position = visibleTable.itemSlot.transform.position;
 				playerAnimator.SetTrigger("PlaceItem");
-				Debug.Log("Item Placed");
+				visibleTable.item = item;
+				item = null;
 			}
 		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		visibleObject = other.gameObject;
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		visibleObject = null;
 	}
 }
