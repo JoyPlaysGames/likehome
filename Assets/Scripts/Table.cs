@@ -22,6 +22,10 @@ public class Table : MonoBehaviour {
 		{
 			item = null;
 		}
+		else
+		{
+			item = GetComponentInChildren<Item>();
+		}
 	}
 
 	private void CreateItemSlots()
