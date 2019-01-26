@@ -392,6 +392,10 @@ PrefabInstance:
       value: 1.215659
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: e6b4a84fe03092e4baf7b733618469c5, type: 3}
+      propertyPath: m_Name
+      value: Broom
+      objectReference: {fileID: 0}
+    - target: {fileID: 100028, guid: e6b4a84fe03092e4baf7b733618469c5, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}

@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	[SerializeField] Animator playerAnimator;
 	[SerializeField] GameObject playerBroom;
 	public GameObject usabilityFignja;
+	private bool iAmAttacking;
 
 	public static bool actionButtonPressed = false;
 	private bool animationPick = false;
@@ -40,6 +41,16 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			if (!iAmAttacking)
+			{
+				StartCoroutine("Attack");
+			}
+			
+		}
+
         if (performingAction) return;
 
 		float moveHorizontal = Input.GetAxis("Horizontal");
@@ -118,6 +129,18 @@ public class Player : MonoBehaviour {
 	private void OnTriggerExit(Collider other)
 	{
 		visibleObject = null;
+	}
+
+    }
+
+	IEnumerator Attack()
+	{
+		playerBroom.SetActive(true);
+		playerAnimator.SetTrigger("Attack");
+		yield return new WaitForSeconds(0.8f);
+		playerBroom.SetActive(false);
+		yield return new WaitForSeconds(0.5f);
+		iAmAttacking = false;
 	}
 
     IEnumerator PerformASpotTimer(TaskEnviromentSpot spot)
