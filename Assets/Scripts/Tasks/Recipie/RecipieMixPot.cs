@@ -6,14 +6,6 @@ public class RecipieMixPot : Table
 {
     public Dictionary<IngredientKind, int> ingredients = new Dictionary<IngredientKind, int>();
 
-	void Start()
-	{
-		if (mixtureTable)
-		{
-			pot.SetActive(true);
-		}	
-	}
-
 	public void TakeIngredient(Item item)
     {
         if(ingredients.ContainsKey(item.kind))

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Table : MonoBehaviour {
 
-	public bool mixtureTable = false;
-
 	public GameObject itemSlot = null;
 	public GameObject pot = null;
 

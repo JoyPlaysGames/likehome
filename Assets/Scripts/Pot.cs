@@ -18,10 +18,10 @@ public class Pot : MonoBehaviour
         
     }
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerStay(Collider other)
 	{
 		RecipieFeedSpot rFS = other.gameObject.GetComponent<RecipieFeedSpot>();
-		if (rFS)
+		if (rFS && Input.GetKeyDown(KeyCode.F))
 		{
 			Destroy(gameObject);
 			rFS.ConsumeRecipie(ingredients);
