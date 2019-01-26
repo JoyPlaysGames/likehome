@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: d468ff65d53a9bd4a93b07b0bf6467de
+timeCreated: 1517011101
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Tree_01.001
+    100004: Tree_01_stump
+    100006: Area
+    100008: Bush
+    100010: Camera
+    100012: Cube
+    100014: Cube.001
+    100016: Cube.003
+    100018: Cube.004
+    100020: Cube.005
+    100022: Cube.007
+    100024: Cube.008
+    100026: Cylinder
+    100028: Fireplace_stones
+    100030: Fireplace_stones.001
+    100032: Fireplace_wood
+    100034: Fireplace_wood.001
+    100036: flower
+    100038: Grid
+    100040: Lamp
+    100042: Sheep
+    100044: Stone_01
+    100046: Stone_02
+    100048: Tree_01.002
+    100050: Tree_02
+    100052: Tree_02_stump
+    100054: Tree_02_stump.001
+    100056: Tree_02_stump.002
+    100058: Tree_03
+    400000: //RootNode
+    400002: Tree_01.001
+    400004: Tree_01_stump
+    400006: Area
+    400008: Bush
+    400010: Camera
+    400012: Cube
+    400014: Cube.001
+    400016: Cube.003
+    400018: Cube.004
+    400020: Cube.005
+    400022: Cube.007
+    400024: Cube.008
+    400026: Cylinder
+    400028: Fireplace_stones
+    400030: Fireplace_stones.001
+    400032: Fireplace_wood
+    400034: Fireplace_wood.001
+    400036: flower
+    400038: Grid
+    400040: Lamp
+    400042: Sheep
+    400044: Stone_01
+    400046: Stone_02
+    400048: Tree_01.002
+    400050: Tree_02
+    400052: Tree_02_stump
+    400054: Tree_02_stump.001
+    400056: Tree_02_stump.002
+    400058: Tree_03
+    2000000: Camera
+    2100000: Material.002
+    2100002: No Name
+    2100004: Material.004
+    2100006: Material.003
+    2100008: Material
+    2300000: Tree_01.001
+    2300002: Tree_01_stump
+    2300004: Bush
+    2300006: Cube
+    2300008: Cube.001
+    2300010: Cube.003
+    2300012: Cube.004
+    2300014: Cube.005
+    2300016: Cube.007
+    2300018: Cube.008
+    2300020: Cylinder
+    2300022: Fireplace_stones
+    2300024: Fireplace_stones.001
+    2300026: Fireplace_wood
+    2300028: Fireplace_wood.001
+    2300030: flower
+    2300032: Grid
+    2300034: Sheep
+    2300036: Stone_01
+    2300038: Stone_02
+    2300040: Tree_01.002
+    2300042: Tree_02
+    2300044: Tree_02_stump
+    2300046: Tree_02_stump.001
+    2300048: Tree_02_stump.002
+    2300050: Tree_03
+    3300000: Tree_01.001
+    3300002: Tree_01_stump
+    3300004: Bush
+    3300006: Cube
+    3300008: Cube.001
+    3300010: Cube.003
+    3300012: Cube.004
+    3300014: Cube.005
+    3300016: Cube.007
+    3300018: Cube.008
+    3300020: Cylinder
+    3300022: Fireplace_stones
+    3300024: Fireplace_stones.001
+    3300026: Fireplace_wood
+    3300028: Fireplace_wood.001
+    3300030: flower
+    3300032: Grid
+    3300034: Sheep
+    3300036: Stone_01
+    3300038: Stone_02
+    3300040: Tree_01.002
+    3300042: Tree_02
+    3300044: Tree_02_stump
+    3300046: Tree_02_stump.001
+    3300048: Tree_02_stump.002
+    3300050: Tree_03
+    4300000: Tree_01.001
+    4300002: Tree_01_stump
+    4300004: Cube.001
+    4300006: Cylinder
+    4300008: Cube
+    4300010: Fireplace_stones.001
+    4300012: Fireplace_wood.001
+    4300014: flower
+    4300016: Sheep
+    4300018: Cube.008
+    4300020: Bush
+    4300022: Cube.007
+    4300024: Stone_02
+    4300026: Stone_01
+    4300028: Tree_02_stump.002
+    4300030: Tree_02_stump.001
+    4300032: Tree_01.002
+    4300034: Grid
+    4300036: Fireplace_wood
+    4300038: Fireplace_stones
+    4300040: Tree_02
+    4300042: Tree_02_stump
+    4300044: Cube.005
+    4300046: Cube.004
+    4300048: Cube.003
+    4300050: Tree_03
+    10800000: Area
+    10800002: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

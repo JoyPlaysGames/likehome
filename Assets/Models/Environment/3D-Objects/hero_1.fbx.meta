@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: 9db493b493d3fdb4e880e74d647c98c7
+timeCreated: 1517053649
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Arm_1.L
+    100002: Arm_1.L.001
+    100004: Arm_1.L.002
+    100006: Arm_1.L.002 1
+    100008: Arm_1.R
+    100010: Arm_1.R.001
+    100012: Arm_1.R.002
+    100014: Arm_1.R.002 1
+    100016: Arm_2.L
+    100018: Arm_2.L.001
+    100020: Arm_2.L.002
+    100022: Arm_2.L.002 1
+    100024: Arm_2.R
+    100026: Arm_2.R.001
+    100028: Arm_2.R.002
+    100030: Arm_2.R.002 1
+    100032: Arm_3.L
+    100034: Arm_3.L.001
+    100036: Arm_3.L.001_end
+    100038: Arm_3.L.002
+    100040: Arm_3.L.002 1
+    100042: Arm_3.L.002_end
+    100044: Arm_3.L.002_end 1
+    100046: Arm_3.L_end
+    100048: Arm_3.R
+    100050: Arm_3.R.001
+    100052: Arm_3.R.001_end
+    100054: Arm_3.R.002
+    100056: Arm_3.R.002 1
+    100058: Arm_3.R.002_end
+    100060: Arm_3.R.002_end 1
+    100062: Arm_3.R_end
+    100064: Arm_IK.L
+    100066: Arm_IK.L.001
+    100068: Arm_IK.L.001_end
+    100070: Arm_IK.L.002
+    100072: Arm_IK.L.002 1
+    100074: Arm_IK.L.002_end
+    100076: Arm_IK.L.002_end 1
+    100078: Arm_IK.L_end
+    100080: Arm_IK.R
+    100082: Arm_IK.R.001
+    100084: Arm_IK.R.001_end
+    100086: Arm_IK.R.002
+    100088: Arm_IK.R.002 1
+    100090: Arm_IK.R.002_end
+    100092: Arm_IK.R.002_end 1
+    100094: Arm_IK.R_end
+    100096: Armature
+    100098: Armature.001
+    100100: Armature.002
+    100102: Armature.003
+    100104: Body
+    100106: Body.001
+    100108: Body.002
+    100110: Body.002 1
+    100112: Butt
+    100114: Butt.001
+    100116: Butt.002
+    100118: Butt.002 1
+    100120: Camera
+    100122: Cube
+    100124: Cube.001
+    100126: Cube.002
+    100128: Cube.003
+    100130: Elbow.L
+    100132: Elbow.L.001
+    100134: Elbow.L.001_end
+    100136: Elbow.L.002
+    100138: Elbow.L.002 1
+    100140: Elbow.L.002_end
+    100142: Elbow.L.002_end 1
+    100144: Elbow.L_end
+    100146: Elbow.R
+    100148: Elbow.R.001
+    100150: Elbow.R.001_end
+    100152: Elbow.R.002
+    100154: Elbow.R.002 1
+    100156: Elbow.R.002_end
+    100158: Elbow.R.002_end 1
+    100160: Elbow.R_end
+    100162: Foot.L
+    100164: Foot.L.001
+    100166: Foot.L.001_end
+    100168: Foot.L.002
+    100170: Foot.L.002 1
+    100172: Foot.L.002_end
+    100174: Foot.L.002_end 1
+    100176: Foot.L_end
+    100178: Foot.R
+    100180: Foot.R.001
+    100182: Foot.R.001_end
+    100184: Foot.R.002
+    100186: Foot.R.002 1
+    100188: Foot.R.002_end
+    100190: Foot.R.002_end 1
+    100192: Foot.R_end
+    100194: Grid
+    100196: Head
+    100198: Head.001
+    100200: Head.001_end
+    100202: Head.002
+    100204: Head.002 1
+    100206: Head.002_end
+    100208: Head.002_end 1
+    100210: Head_end
+    100212: Hemi
+    100214: Hero_01
+    100216: //RootNode
+    100218: Knee.L
+    100220: Knee.L.001
+    100222: Knee.L.001_end
+    100224: Knee.L.002
+    100226: Knee.L.002 1
+    100228: Knee.L.002_end
+    100230: Knee.L.002_end 1
+    100232: Knee.L_end
+    100234: Knee.R
+    100236: Knee.R.001
+    100238: Knee.R.001_end
+    100240: Knee.R.002
+    100242: Knee.R.002 1
+    100244: Knee.R.002_end
+    100246: Knee.R.002_end 1
+    100248: Knee.R_end
+    100250: Lamp
+    100252: Leg_1.L
+    100254: Leg_1.L.001
+    100256: Leg_1.L.002
+    100258: Leg_1.L.002 1
+    100260: Leg_1.R
+    100262: Leg_1.R.001
+    100264: Leg_1.R.002
+    100266: Leg_1.R.002 1
+    100268: Leg_2.L
+    100270: Leg_2.L.001
+    100272: Leg_2.L.001_end
+    100274: Leg_2.L.002
+    100276: Leg_2.L.002 1
+    100278: Leg_2.L.002_end
+    100280: Leg_2.L.002_end 1
+    100282: Leg_2.L_end
+    100284: Leg_2.R
+    100286: Leg_2.R.001
+    100288: Leg_2.R.001_end
+    100290: Leg_2.R.002
+    100292: Leg_2.R.002 1
+    100294: Leg_2.R.002_end
+    100296: Leg_2.R.002_end 1
+    100298: Leg_2.R_end
+    100300: Leg_IK.L
+    100302: Leg_IK.L.001
+    100304: Leg_IK.L.002
+    100306: Leg_IK.L.002 1
+    100308: Leg_IK.R
+    100310: Leg_IK.R.001
+    100312: Leg_IK.R.002
+    100314: Leg_IK.R.002 1
+    100316: Sun
+    400000: Arm_1.L
+    400002: Arm_1.L.001
+    400004: Arm_1.L.002
+    400006: Arm_1.L.002 1
+    400008: Arm_1.R
+    400010: Arm_1.R.001
+    400012: Arm_1.R.002
+    400014: Arm_1.R.002 1
+    400016: Arm_2.L
+    400018: Arm_2.L.001
+    400020: Arm_2.L.002
+    400022: Arm_2.L.002 1
+    400024: Arm_2.R
+    400026: Arm_2.R.001
+    400028: Arm_2.R.002
+    400030: Arm_2.R.002 1
+    400032: Arm_3.L
+    400034: Arm_3.L.001
+    400036: Arm_3.L.001_end
+    400038: Arm_3.L.002
+    400040: Arm_3.L.002 1
+    400042: Arm_3.L.002_end
+    400044: Arm_3.L.002_end 1
+    400046: Arm_3.L_end
+    400048: Arm_3.R
+    400050: Arm_3.R.001
+    400052: Arm_3.R.001_end
+    400054: Arm_3.R.002
+    400056: Arm_3.R.002 1
+    400058: Arm_3.R.002_end
+    400060: Arm_3.R.002_end 1
+    400062: Arm_3.R_end
+    400064: Arm_IK.L
+    400066: Arm_IK.L.001
+    400068: Arm_IK.L.001_end
+    400070: Arm_IK.L.002
+    400072: Arm_IK.L.002 1
+    400074: Arm_IK.L.002_end
+    400076: Arm_IK.L.002_end 1
+    400078: Arm_IK.L_end
+    400080: Arm_IK.R
+    400082: Arm_IK.R.001
+    400084: Arm_IK.R.001_end
+    400086: Arm_IK.R.002
+    400088: Arm_IK.R.002 1
+    400090: Arm_IK.R.002_end
+    400092: Arm_IK.R.002_end 1
+    400094: Arm_IK.R_end
+    400096: Armature
+    400098: Armature.001
+    400100: Armature.002
+    400102: Armature.003
+    400104: Body
+    400106: Body.001
+    400108: Body.002
+    400110: Body.002 1
+    400112: Butt
+    400114: Butt.001
+    400116: Butt.002
+    400118: Butt.002 1
+    400120: Camera
+    400122: Cube
+    400124: Cube.001
+    400126: Cube.002
+    400128: Cube.003
+    400130: Elbow.L
+    400132: Elbow.L.001
+    400134: Elbow.L.001_end
+    400136: Elbow.L.002
+    400138: Elbow.L.002 1
+    400140: Elbow.L.002_end
+    400142: Elbow.L.002_end 1
+    400144: Elbow.L_end
+    400146: Elbow.R
+    400148: Elbow.R.001
+    400150: Elbow.R.001_end
+    400152: Elbow.R.002
+    400154: Elbow.R.002 1
+    400156: Elbow.R.002_end
+    400158: Elbow.R.002_end 1
+    400160: Elbow.R_end
+    400162: Foot.L
+    400164: Foot.L.001
+    400166: Foot.L.001_end
+    400168: Foot.L.002
+    400170: Foot.L.002 1
+    400172: Foot.L.002_end
+    400174: Foot.L.002_end 1
+    400176: Foot.L_end
+    400178: Foot.R
+    400180: Foot.R.001
+    400182: Foot.R.001_end
+    400184: Foot.R.002
+    400186: Foot.R.002 1
+    400188: Foot.R.002_end
+    400190: Foot.R.002_end 1
+    400192: Foot.R_end
+    400194: Grid
+    400196: Head
+    400198: Head.001
+    400200: Head.001_end
+    400202: Head.002
+    400204: Head.002 1
+    400206: Head.002_end
+    400208: Head.002_end 1
+    400210: Head_end
+    400212: Hemi
+    400214: Hero_01
+    400216: //RootNode
+    400218: Knee.L
+    400220: Knee.L.001
+    400222: Knee.L.001_end
+    400224: Knee.L.002
+    400226: Knee.L.002 1
+    400228: Knee.L.002_end
+    400230: Knee.L.002_end 1
+    400232: Knee.L_end
+    400234: Knee.R
+    400236: Knee.R.001
+    400238: Knee.R.001_end
+    400240: Knee.R.002
+    400242: Knee.R.002 1
+    400244: Knee.R.002_end
+    400246: Knee.R.002_end 1
+    400248: Knee.R_end
+    400250: Lamp
+    400252: Leg_1.L
+    400254: Leg_1.L.001
+    400256: Leg_1.L.002
+    400258: Leg_1.L.002 1
+    400260: Leg_1.R
+    400262: Leg_1.R.001
+    400264: Leg_1.R.002
+    400266: Leg_1.R.002 1
+    400268: Leg_2.L
+    400270: Leg_2.L.001
+    400272: Leg_2.L.001_end
+    400274: Leg_2.L.002
+    400276: Leg_2.L.002 1
+    400278: Leg_2.L.002_end
+    400280: Leg_2.L.002_end 1
+    400282: Leg_2.L_end
+    400284: Leg_2.R
+    400286: Leg_2.R.001
+    400288: Leg_2.R.001_end
+    400290: Leg_2.R.002
+    400292: Leg_2.R.002 1
+    400294: Leg_2.R.002_end
+    400296: Leg_2.R.002_end 1
+    400298: Leg_2.R_end
+    400300: Leg_IK.L
+    400302: Leg_IK.L.001
+    400304: Leg_IK.L.002
+    400306: Leg_IK.L.002 1
+    400308: Leg_IK.R
+    400310: Leg_IK.R.001
+    400312: Leg_IK.R.002
+    400314: Leg_IK.R.002 1
+    400316: Sun
+    2000000: Camera
+    2300000: Cube.003
+    2300002: Grid
+    2300004: Hero_01
+    3300000: Cube.003
+    3300002: Grid
+    3300004: Hero_01
+    4300000: Grid
+    4300002: Cube.003
+    4300004: Cube.002
+    4300006: Hero_01
+    4300008: Cube.001
+    4300010: Cube
+    7400000: Armature.002|Walk
+    9500000: //RootNode
+    10800000: Hemi
+    10800002: Lamp
+    10800004: Sun
+    13700000: Cube
+    13700002: Cube.001
+    13700004: Cube.002
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 9c79d0db8e2c74147ba9f16d494c4b76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: da69f2c3cf980164c90a15bb941fa26f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 53dffbab91a90404bba1ba4d8be98725, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: f1f06f19c4b87a944992f9e11cf1de3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: a1f989bcd7ce64440abf76c8c1eea6b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 53b6a43581c705040841dd1d292b988c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 289b5761de2e15e4096be3f57fa01b42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.007
+    second: {fileID: 2100000, guid: 5c6abcf6e5eea184390f27ab4c94d60e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.008
+    second: {fileID: 2100000, guid: 497d86b8f8d69e84480e2ba4192b119a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: 7767007f445aa9141907dd911edfef12
+timeCreated: 1517083325
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Back
+    100002: Back 1
+    100004: COG
+    100006: COG 1
+    100008: FemaleArm
+    100010: Fingers1.Left
+    100012: Fingers1.Left 1
+    100014: Fingers1.Right
+    100016: Fingers1.Right 1
+    100018: Fingers2.Left
+    100020: Fingers2.Left 1
+    100022: Fingers2.Left_end
+    100024: Fingers2.Left_end 1
+    100026: Fingers2.Right
+    100028: Fingers2.Right 1
+    100030: Fingers2.Right_end
+    100032: Fingers2.Right_end 1
+    100034: Foot.Left
+    100036: Foot.Left 1
+    100038: Foot.Right
+    100040: Foot.Right 1
+    100042: Forearm.Left
+    100044: Forearm.Left 1
+    100046: Forearm.Right
+    100048: Forearm.Right 1
+    100050: Hand.Left
+    100052: Hand.Left 1
+    100054: Hand.Right
+    100056: Hand.Right 1
+    100058: Head
+    100060: Head 1
+    100062: Head_end
+    100064: Head_end 1
+    100066: Hero_01
+    100068: //RootNode
+    100070: Hip
+    100072: Hip 1
+    100074: MaleArm
+    100076: Neck
+    100078: Neck 1
+    100080: Shin.Left
+    100082: Shin.Left 1
+    100084: Shin.Right
+    100086: Shin.Right 1
+    100088: Shoulder.Left
+    100090: Shoulder.Left 1
+    100092: Shoulder.Right
+    100094: Shoulder.Right 1
+    100096: Thigh.Left
+    100098: Thigh.Left 1
+    100100: Thigh.Right
+    100102: Thigh.Right 1
+    100104: Thumb1.Left
+    100106: Thumb1.Left 1
+    100108: Thumb1.Right
+    100110: Thumb1.Right 1
+    100112: Thumb2.Left
+    100114: Thumb2.Left 1
+    100116: Thumb2.Left_end
+    100118: Thumb2.Left_end 1
+    100120: Thumb2.Right
+    100122: Thumb2.Right 1
+    100124: Thumb2.Right_end
+    100126: Thumb2.Right_end 1
+    100128: Toes.Left
+    100130: Toes.Left 1
+    100132: Toes.Left_end
+    100134: Toes.Left_end 1
+    100136: Toes.Right
+    100138: Toes.Right 1
+    100140: Toes.Right_end
+    100142: Toes.Right_end 1
+    100144: Upperarm.Left
+    100146: Upperarm.Left 1
+    100148: Upperarm.Right
+    100150: Upperarm.Right 1
+    400000: Back
+    400002: Back 1
+    400004: COG
+    400006: COG 1
+    400008: FemaleArm
+    400010: Fingers1.Left
+    400012: Fingers1.Left 1
+    400014: Fingers1.Right
+    400016: Fingers1.Right 1
+    400018: Fingers2.Left
+    400020: Fingers2.Left 1
+    400022: Fingers2.Left_end
+    400024: Fingers2.Left_end 1
+    400026: Fingers2.Right
+    400028: Fingers2.Right 1
+    400030: Fingers2.Right_end
+    400032: Fingers2.Right_end 1
+    400034: Foot.Left
+    400036: Foot.Left 1
+    400038: Foot.Right
+    400040: Foot.Right 1
+    400042: Forearm.Left
+    400044: Forearm.Left 1
+    400046: Forearm.Right
+    400048: Forearm.Right 1
+    400050: Hand.Left
+    400052: Hand.Left 1
+    400054: Hand.Right
+    400056: Hand.Right 1
+    400058: Head
+    400060: Head 1
+    400062: Head_end
+    400064: Head_end 1
+    400066: Hero_01
+    400068: //RootNode
+    400070: Hip
+    400072: Hip 1
+    400074: MaleArm
+    400076: Neck
+    400078: Neck 1
+    400080: Shin.Left
+    400082: Shin.Left 1
+    400084: Shin.Right
+    400086: Shin.Right 1
+    400088: Shoulder.Left
+    400090: Shoulder.Left 1
+    400092: Shoulder.Right
+    400094: Shoulder.Right 1
+    400096: Thigh.Left
+    400098: Thigh.Left 1
+    400100: Thigh.Right
+    400102: Thigh.Right 1
+    400104: Thumb1.Left
+    400106: Thumb1.Left 1
+    400108: Thumb1.Right
+    400110: Thumb1.Right 1
+    400112: Thumb2.Left
+    400114: Thumb2.Left 1
+    400116: Thumb2.Left_end
+    400118: Thumb2.Left_end 1
+    400120: Thumb2.Right
+    400122: Thumb2.Right 1
+    400124: Thumb2.Right_end
+    400126: Thumb2.Right_end 1
+    400128: Toes.Left
+    400130: Toes.Left 1
+    400132: Toes.Left_end
+    400134: Toes.Left_end 1
+    400136: Toes.Right
+    400138: Toes.Right 1
+    400140: Toes.Right_end
+    400142: Toes.Right_end 1
+    400144: Upperarm.Left
+    400146: Upperarm.Left 1
+    400148: Upperarm.Right
+    400150: Upperarm.Right 1
+    2100000: Material
+    4300000: Hero_01
+    7400000: 'Act: Left-Punch-F'
+    7400002: 'Act: Run'
+    7400004: FemaleArm|Charge-Punch-F
+    7400006: FemaleArm|Charge-Punch-M
+    7400008: FemaleArm|Idle-F
+    7400010: FemaleArm|Idle-M
+    7400012: FemaleArm|Left-Punch-F
+    7400014: FemaleArm|Left-Punch-M
+    7400016: FemaleArm|Rest
+    7400018: FemaleArm|Rest.001
+    7400020: FemaleArm|Run-F
+    7400022: FemaleArm|Run-M
+    7400024: FemaleArm|T-pose
+    7400026: FemaleArm|T-Pose
+    7400028: FemaleArm|Walk
+    7400030: FemaleArm|Walk-F
+    7400032: MaleArm|Charge-Punch-F
+    7400034: MaleArm|Charge-Punch-M
+    7400036: MaleArm|Idle-F
+    7400038: MaleArm|Idle-M
+    7400040: MaleArm|Left-Punch-F
+    7400042: MaleArm|Left-Punch-M
+    7400044: MaleArm|Rest
+    7400046: MaleArm|Rest.001
+    7400048: MaleArm|Run-F
+    7400050: MaleArm|Run-M
+    7400052: MaleArm|T-pose
+    7400054: MaleArm|T-Pose
+    7400056: MaleArm|Walk
+    7400058: MaleArm|Walk-F
+    9500000: //RootNode
+    13700000: Hero_01
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
