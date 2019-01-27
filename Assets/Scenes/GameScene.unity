@@ -5726,7 +5726,7 @@ PrefabInstance:
     - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
         type: 3}
       propertyPath: levels.Array.data[0].tasks.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
         type: 3}
@@ -14585,6 +14585,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 888720822926538787, guid: fb199cf9ef699c6468ab8f1e9909c762, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fb199cf9ef699c6468ab8f1e9909c762, type: 3}
+--- !u!114 &1058371251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3132587350752186873, guid: e2717e0e910710d4ea38c52317378b56,
+    type: 3}
+  m_PrefabInstance: {fileID: 2123513720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 502967044ced40c439f1c334a0a083a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1060713703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36025,7 +36037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fb9c5d97f35124cadfbdab5a6ffd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pot: {fileID: 0}
+  pot: {fileID: 1058371251}
 --- !u!65 &7266080051984036228
 BoxCollider:
   m_ObjectHideFlags: 0

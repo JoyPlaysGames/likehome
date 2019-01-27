@@ -23,7 +23,6 @@ public class CameraController : MonoBehaviour {
             if (cPos < -1.5f) p.x = -1.5f;
             if (cPos > 1.5f) p.x = 1.5f;
         }
-        
 
         transform.position = p; 
 	}

@@ -245,6 +245,7 @@ public class TaskManager : MonoBehaviour
         else
         {
             openTasks = new Dictionary<int, LevelTask>();
+            taskUiCards = new Dictionary<int, TaskContainer>();
             score = 0;
             active = true;
             StartLevel();

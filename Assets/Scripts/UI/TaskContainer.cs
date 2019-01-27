@@ -92,10 +92,11 @@ public class TaskContainer : MonoBehaviour
     }
     public void Win()
     {
+        StartCoroutine("Destroy");
         active = false;
         blockCasual.SetActive(false);
         blockWin.SetActive(true);
-        StartCoroutine("Destroy");
+        
     }
 
 
