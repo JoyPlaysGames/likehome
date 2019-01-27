@@ -135,6 +135,7 @@ public class TaskManager : MonoBehaviour
     /// <param name="id">Task id from current level task list</param>
     public void FinishTask(int id)
     {
+		houseAnimator.SetTrigger("MonsterFeed");
         openTasks[id].completed = true;
         taskUiCards[id].Win();
         score += openTasks[id].rewardPoints;
