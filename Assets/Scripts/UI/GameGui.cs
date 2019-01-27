@@ -58,7 +58,6 @@ public class GameGui : MonoBehaviour
         float w = progWidth * s / 100;
         if (s < 0) s = 0;
         if (s > 100) s = 100;
-        levelScoreProgress.sizeDelta = new Vector2(w, progHeight);//new Vector2(p, 9.5f);
-        //timeCounter.text = Mathf.Round(time).ToString();
+        levelScoreProgress.sizeDelta = new Vector2(w, progHeight);
     }
 }
