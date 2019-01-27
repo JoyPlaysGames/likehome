@@ -9,4 +9,5 @@ public static class The
     public static Task tasks;
     public static TaskManager taskManager;
     public static GameGui gameGui;
+    public static EnemyManager enemyManager;
 }

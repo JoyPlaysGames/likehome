@@ -29,6 +29,8 @@ public class Player : MonoBehaviour {
 
     bool performingAction = false;
 
+    public GameObject hittuPointu;
+
 	private void Awake()
 	{
 		if(_instance == null)
@@ -150,11 +152,15 @@ public class Player : MonoBehaviour {
 	{
 		playerBroom.SetActive(true);
 		playerAnimator.SetTrigger("Attack");
-		yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.4f);
+        The.enemyManager.PlayerAtksEnemy(hittuPointu.transform.position);
+        yield return new WaitForSeconds(0.4f);
 		playerBroom.SetActive(false);
 		yield return new WaitForSeconds(0.5f);
 		iAmAttacking = false;
 	}
+
+   
 
     IEnumerator PerformASpotTimer(TaskEnviromentSpot spot)
     {

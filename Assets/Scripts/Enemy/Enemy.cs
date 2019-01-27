@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
             if(Vector3.Distance(transform.position, pos) < p1_dist && pos != currTarget)
             {
                 p3 = p2; p2 = p1; p1 = pos; p1_dist = Vector3.Distance(transform.position, pos);
+                if (p2 == Vector3.zero) p2 = p1;
                 if(p3 == Vector3.zero) p3 = p2;
             }
         }
@@ -65,4 +66,17 @@ public class Enemy : MonoBehaviour
         return points[Random.Range(0, points.Count)];
     }
 
+    public void GetAKickInAButt()
+    {
+        hp--;
+        if(hp <= 0)
+        {
+            MeDieded();
+        }
+    }
+
+    void MeDieded()
+    {
+        m.DiededEnemy(this);
+    }
 }

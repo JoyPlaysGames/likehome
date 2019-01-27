@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyKind: 1
-  dropsItem: 
+  dropsItem: 0100000002000000
   hp: 2
   atk: 1
   speed: 0.5
+  tempPoints: []
   m: {fileID: 0}
 --- !u!1001 &8701851891700733323
 PrefabInstance:
