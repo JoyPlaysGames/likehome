@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SoundCheck : MonoBehaviour
 {
+    public Player player;
+
 	public AudioClip insideClip;
 	public AudioClip outsideClip;
 	public AudioClip mainMenuSound;
@@ -24,10 +26,10 @@ public class SoundCheck : MonoBehaviour
 			Debug.Log("Play Sound");
 			The.soundManager.PlayLoop(mainMenuSound);
 		}
-
+        player = transform.gameObject.GetComponent<Player>();
 	}
 
-	private void LateUpdate()
+	private void FixedUpdate()
 	{
 		if (The.soundManager.SourceLoop != null && SceneManager.GetActiveScene().buildIndex == 1)
 		{
@@ -46,6 +48,7 @@ public class SoundCheck : MonoBehaviour
 
 			if (hit.collider.tag.Equals("Outside"))
 			{
+                player.inside = false;
 				if (The.soundManager.SourceLoop.clip.length > 40)
 				{
 					The.soundManager.PlayLoop(outsideClip);
@@ -53,6 +56,7 @@ public class SoundCheck : MonoBehaviour
 			};
 			if (hit.collider.tag.Equals("Inside"))
 			{
+                player.inside = true;
 				if (The.soundManager.SourceLoop.clip.length < 40)
 				{
 					The.soundManager.PlayLoop(insideClip);

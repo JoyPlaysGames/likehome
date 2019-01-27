@@ -28,6 +28,8 @@ public class Player : MonoBehaviour {
 
 	private GameObject visibleObject;
 
+    public bool inside = true;
+
 	private void Awake()
 	{
 		if(_instance == null)

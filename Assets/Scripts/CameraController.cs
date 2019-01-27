@@ -16,6 +16,15 @@ public class CameraController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		transform.position = player.transform.position + offset + extraOffset;
+        Vector3 p = player.transform.position + offset + extraOffset;
+        if (player.transform.gameObject.GetComponent<Player>().inside)
+        {
+            float cPos = p.x;
+            if (cPos < -1.5f) p.x = -1.5f;
+            if (cPos > 1.5f) p.x = 1.5f;
+        }
+        
+
+        transform.position = p; 
 	}
 }
