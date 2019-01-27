@@ -37,9 +37,10 @@ public class SoundManager : MonoBehaviour
 	public void PlayLoop(AudioClip clip)
 	{
 		SourceLoop.Stop();
-		SourceLoop.clip = clip;
-		SourceLoop.PlayOneShot(clip);
 		SourceLoop.loop = true;
+		SourceLoop.clip = clip;
+		SourceLoop.Play(0);
+		
 
 	}
 
