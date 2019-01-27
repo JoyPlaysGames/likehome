@@ -4,32 +4,29 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	[SerializeField] GameObject playerModel;
-	public Animator playerAnimator;
-	public Animator houseAnimator;
-	[SerializeField] GameObject playerBroom;
-	public GameObject usabilityFignja;
-	private bool iAmAttacking;
-	public bool potInHand = false;
-	private bool doorClosed = true;
-
-	public static bool actionButtonPressed = false;
-	private bool animationPick = false;
-	private bool animationPlace = false;
-
-	public GameObject hands = null;
-
-	[SerializeField] float speed = 10f;
-
-	public Item item = null;
-
-	private GameObject visibleObject;
-
 	public static Player _instance;
 
-    bool performingAction = false;
+	public Animator playerAnimator;
+	public Animator houseAnimator;
 
-    public GameObject hittuPointu;
+	[SerializeField] GameObject playerModel;
+	[SerializeField] GameObject playerBroom;
+	[SerializeField] float speed = 10f;
+
+	public GameObject hittuPointu;
+	public GameObject usabilityFignja;
+	public GameObject hands = null;
+	public Item item = null;
+
+	public bool potInHand = false;
+
+	private bool animationPick = false;
+	private bool animationPlace = false;
+	private bool iAmAttacking;
+	private bool doorClosed = true;
+	private bool performingAction = false;
+
+	private GameObject visibleObject;
 
 	private void Awake()
 	{
@@ -37,11 +34,6 @@ public class Player : MonoBehaviour {
 		{
 			_instance = this; 
 		}
-	}
-
-	// Use this for initialization
-	void Start() {
-
 	}
 
 	// Update is called once per frame
@@ -129,8 +121,8 @@ public class Player : MonoBehaviour {
 					potInHand = true;
 					return;
 				}
-					
-				if(potInHand && item == null && rMP != null)
+
+				if (potInHand && item == null && rMP != null)
 				{
 					Pot newPot = hands.GetComponentInChildren<Pot>();
 					newPot.gameObject.transform.SetParent(rMP.itemSlot.transform);
@@ -139,7 +131,7 @@ public class Player : MonoBehaviour {
 					newPot.ingredients = rMP.ingredients;
 					playerAnimator.SetTrigger("PlaceItem");
 					potInHand = false;
-					return;
+					
 				}
 
 				if (item == null && visibleSpot != null && !potInHand)
