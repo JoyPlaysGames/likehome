@@ -13,7 +13,7 @@ public class RecipieFeedSpot : MonoBehaviour
 		The.taskManager.ConsumeRecipie(ingredients);
 		if(ingredients.Count != 0)
 		{
-			pot.ingredients.Clear();
+			pot.ingredients = new Dictionary<IngredientKind, int>();
 		}
     }
 }

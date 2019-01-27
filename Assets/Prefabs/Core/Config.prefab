@@ -79,20 +79,16 @@ MonoBehaviour:
       count: 1
     - ingredient: 2
       count: 1
-    - ingredient: 4
+    - ingredient: 3
       count: 1
   - kind: 2
     reqirements:
+    - ingredient: 2
+      count: 1
     - ingredient: 1
-      count: 1
-    - ingredient: 3
-      count: 1
-    - ingredient: 4
       count: 1
   - kind: 3
     reqirements:
-    - ingredient: 2
-      count: 1
     - ingredient: 3
       count: 1
     - ingredient: 4
