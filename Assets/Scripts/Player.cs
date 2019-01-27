@@ -89,6 +89,7 @@ public class Player : MonoBehaviour {
 				Table visibleTable = visibleObject.GetComponent<Table>();
 				TaskEnviromentSpot visibleSpot = visibleObject.GetComponent<TaskEnviromentSpot>();
 				Pot visiblePot = visibleObject.GetComponentInChildren<Pot>();
+				RecipieMixPot rMP = visibleObject.GetComponent<RecipieMixPot>();
 
 				if (visibleItem == null && visibleSpot == null && visiblePot == null && visibleTable != null)
 				{
@@ -119,13 +120,26 @@ public class Player : MonoBehaviour {
                     return;
 				}
 
-				if(visibleTable != null && item == null && visiblePot != null)
+				if (visibleTable != null && item == null && visiblePot != null)
 				{
 					visiblePot.gameObject.transform.SetParent(hands.transform);
 					visiblePot.gameObject.transform.position = visiblePot.startingLocation;
-					playerAnimator.SetTrigger("PickItem");
 					visiblePot.ingredients = visibleTable.GetComponent<RecipieMixPot>().ingredients;
+					playerAnimator.SetTrigger("PickItem");
 					potInHand = true;
+					return;
+				}
+					
+				if(potInHand && item == null && rMP != null)
+				{
+					Pot newPot = hands.GetComponentInChildren<Pot>();
+					newPot.gameObject.transform.SetParent(rMP.itemSlot.transform);
+					newPot.gameObject.transform.position = newPot.startingLocation;
+					newPot.gameObject.transform.rotation = newPot.startingRotation;
+					newPot.ingredients = rMP.ingredients;
+					playerAnimator.SetTrigger("PlaceItem");
+					potInHand = false;
+					return;
 				}
 
 				if (item == null && visibleSpot != null && !potInHand)

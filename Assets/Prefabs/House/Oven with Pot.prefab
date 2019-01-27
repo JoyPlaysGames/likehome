@@ -78,7 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 502967044ced40c439f1c334a0a083a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemSlot: {fileID: 3132587350264404478}
+  itemSlot: {fileID: 3132587350264404478}
+  startingLocation: {x: 0, y: 0, z: 0}
 --- !u!65 &3132587350752186874
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,9 +6,9 @@ public class Pot : MonoBehaviour
 {
 	public Dictionary<IngredientKind, int> ingredients = new Dictionary<IngredientKind, int>();
 
-	public Transform ItemSlot = null;
+	public Transform itemSlot = null;
 
-	private Quaternion startingRotation;
+	public Quaternion startingRotation;
 	public Vector3 startingLocation;
 
     // Start is called before the first frame update
@@ -31,8 +31,8 @@ public class Pot : MonoBehaviour
 		{
 			
 			rFS.ConsumeRecipie(ingredients);
-			transform.parent = ItemSlot;
-			transform.position = ItemSlot.position;
+			transform.parent = itemSlot;
+			transform.position = itemSlot.position;
 			transform.position = startingLocation;
 			transform.rotation = startingRotation;
 			ingredients.Clear();
