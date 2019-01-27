@@ -27,25 +27,23 @@ public class SoundCheck : MonoBehaviour
 
 	private void BackgroundMusic()
 	{
+
 		Ray ray = new Ray(transform.position + Vector3.up, -Vector3.up);
 		RaycastHit hit;
 		if (Physics.Raycast(ray, out hit))
 		{
-			Debug.Log("Shooting Raycast");
+
 			if (hit.collider.tag.Equals("Outside"))
 			{
 				if (The.soundManager.SourceLoop.clip.length > 40)
 				{
-					Debug.Log("I am outside");
-					Debug.Log("Start outside audio");
 					The.soundManager.PlayLoop(outsideClip);
 				}
 			};
 			if (hit.collider.tag.Equals("Inside"))
 			{
-				if (The.soundManager.SourceLoop.clip.length < 20)
+				if (The.soundManager.SourceLoop.clip.length < 40)
 				{
-					Debug.Log("Start inside audio");
 					The.soundManager.PlayLoop(insideClip);
 				}
 			}

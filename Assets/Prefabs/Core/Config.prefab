@@ -48,16 +48,18 @@ MonoBehaviour:
   ingredientConfigs:
   - kind: 1
     icon: {fileID: 21300000, guid: 5cc8e0d2bbef96449ac5d49d0ec5c479, type: 3}
-    prefab: {fileID: 0}
+    prefab: {fileID: 7823103762507094642, guid: 8cd6428bf3f814c4fac44cfc3c03fdec,
+      type: 3}
   - kind: 2
     icon: {fileID: 21300000, guid: 0eb339eddb612d542bb413612ecb6310, type: 3}
-    prefab: {fileID: 0}
+    prefab: {fileID: 7823103762507094642, guid: 2481ac9ec4e74b541bba4b3a4676b5ca,
+      type: 3}
   - kind: 3
     icon: {fileID: 21300000, guid: 96f4cd430acdb684fbcaf23c454cc85d, type: 3}
-    prefab: {fileID: 0}
+    prefab: {fileID: 1835690087103234, guid: a8bf3dad3958c5d42ba6d39d31211825, type: 3}
   - kind: 4
-    icon: {fileID: 21300000, guid: 96f4cd430acdb684fbcaf23c454cc85d, type: 3}
-    prefab: {fileID: 0}
+    icon: {fileID: 21300000, guid: 48c6f566de48ef3429ccb4f694a8f987, type: 3}
+    prefab: {fileID: 898034423, guid: e5acfb12ffda35245875f02b3afae074, type: 3}
 --- !u!114 &8001122658814658514
 MonoBehaviour:
   m_ObjectHideFlags: 0
