@@ -9,7 +9,7 @@ public class TaskManager : MonoBehaviour
 
 	public Animator houseAnimator;
 
-    int score = 0;
+    int score = 50;
 
     int currentLevel = 0;
     public List<LevelConfig> levels;
@@ -125,6 +125,7 @@ public class TaskManager : MonoBehaviour
         openTasks[id].completed = true;
         score -= openTasks[id].failPoints;
         The.gameGui.levelScore.text = score.ToString();
+        The.gameGui.UpdateScore(score);
         StartCoroutine(InstantiateTask(3.3f));
         CheckLevelFinished();
     }
@@ -140,6 +141,7 @@ public class TaskManager : MonoBehaviour
         taskUiCards[id].Win();
         score += openTasks[id].rewardPoints;
         The.gameGui.levelScore.text = score.ToString();
+        The.gameGui.UpdateScore(score);
         StartCoroutine(InstantiateTask(3.3f));
         CheckLevelFinished();
     }
@@ -246,7 +248,7 @@ public class TaskManager : MonoBehaviour
         {
             openTasks = new Dictionary<int, LevelTask>();
             taskUiCards = new Dictionary<int, TaskContainer>();
-            score = 0;
+            score = 50;
             active = true;
             StartLevel();
         }
