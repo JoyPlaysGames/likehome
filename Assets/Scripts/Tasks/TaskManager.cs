@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class TaskManager : MonoBehaviour
 {
+
+	public Animator houseAnimator;
+
     int score = 0;
 
     int currentLevel = 0;
@@ -199,6 +202,7 @@ public class TaskManager : MonoBehaviour
 			int id = IsRecipieAnActualTask(r);
 			if (id >= 0)
 			{
+				houseAnimator.SetTrigger("MonsterFeed");
 				FinishTask(id);
 			}
 			else
@@ -214,6 +218,7 @@ public class TaskManager : MonoBehaviour
 
     void BadRecipieConsumed()
     {
+		houseAnimator.SetTrigger("MonsterYack");
         Debug.Log("YO GIB BAD SHIT");
     }
 

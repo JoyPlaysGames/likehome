@@ -20,17 +20,8 @@ public class SoundManager : MonoBehaviour
 
 	void Awake()
 	{
-		SoundManager.instance = this;
+		The.soundManager = this;
 		DontDestroyOnLoad(gameObject);
-	}
-
-	private void Update()
-	{
-		if (!SourceLoop.isPlaying)
-		{
-			PlayLoop(gameInHouse);
-			SourceLoop.Play();
-		}
 	}
 
 	public void PlayOnce(AudioClip clip)
@@ -45,6 +36,8 @@ public class SoundManager : MonoBehaviour
 
 	public void PlayLoop(AudioClip clip)
 	{
+		SourceLoop.Stop();
+		SourceLoop.PlayOneShot(clip);
 		SourceLoop.loop = true;
 
 	}

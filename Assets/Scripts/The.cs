@@ -10,4 +10,6 @@ public static class The
     public static TaskManager taskManager;
     public static GameGui gameGui;
     public static EnemyManager enemyManager;
+
+	public static SoundManager soundManager;
 }
