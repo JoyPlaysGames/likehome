@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SoundCheck : MonoBehaviour
 {
-	public bool outside;
-	public bool inside;
-
 	public AudioClip insideClip;
 	public AudioClip outsideClip;
+
+	public GameObject inside;
+	public GameObject outside;
 
 	private void Start()
 	{
@@ -16,24 +16,39 @@ public class SoundCheck : MonoBehaviour
 			The.soundManager.PlayLoop(insideClip);
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void LateUpdate()
 	{
-		if (other.CompareTag("Player"))
+		if (The.soundManager.SourceLoop != null)
 		{
-			if (outside)
-			{
-				Debug.Log("I am outside");
-				Debug.Log("Start outside audio");
-				The.soundManager.PlayLoop(outsideClip);
-			}
-			if (inside)
-			{
-				Debug.Log("Start inside audio");
-				The.soundManager.PlayLoop(insideClip);					
-			}
+			BackgroundMusic();
 		}
+		
 	}
 
-
-
+	private void BackgroundMusic()
+	{
+		Ray ray = new Ray(transform.position + Vector3.up, -Vector3.up);
+		RaycastHit hit;
+		if (Physics.Raycast(ray, out hit))
+		{
+			Debug.Log("Shooting Raycast");
+			if (hit.collider.tag.Equals("Outside"))
+			{
+				if (The.soundManager.SourceLoop.clip.length > 40)
+				{
+					Debug.Log("I am outside");
+					Debug.Log("Start outside audio");
+					The.soundManager.PlayLoop(outsideClip);
+				}
+			};
+			if (hit.collider.tag.Equals("Inside"))
+			{
+				if (The.soundManager.SourceLoop.clip.length < 20)
+				{
+					Debug.Log("Start inside audio");
+					The.soundManager.PlayLoop(insideClip);
+				}
+			}
+		}
+	}   
 }

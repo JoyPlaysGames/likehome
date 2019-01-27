@@ -21419,7 +21419,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 19.11, y: 1, z: 4.81}
+  m_Size: {x: 19.11, y: 1, z: 18.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1540494088
 Transform:
@@ -21429,7 +21429,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540494086}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.67, z: -7.15}
+  m_LocalPosition: {x: -0.05, y: 0.67, z: -0.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -21450,7 +21450,7 @@ MonoBehaviour:
   outside: 0
   inside: 1
   insideClip: {fileID: 8300000, guid: a62fb53dea073884cbb0c73357030884, type: 3}
-  outsideClip: {fileID: 8300000, guid: 8b46c9e19cac1b6429793b3a6ecf8c69, type: 3}
+  outsideClip: {fileID: 8300000, guid: 8f71a0b5aaf45914084caa522c367ff4, type: 3}
 --- !u!4 &1540906390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2910177578046848221, guid: fb199cf9ef699c6468ab8f1e9909c762,
@@ -28982,7 +28982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125480522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0.67, z: -11.68}
+  m_LocalPosition: {x: -0.05, y: 0.67, z: -10.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -29003,7 +29003,7 @@ MonoBehaviour:
   outside: 1
   inside: 0
   insideClip: {fileID: 8300000, guid: a62fb53dea073884cbb0c73357030884, type: 3}
-  outsideClip: {fileID: 8300000, guid: 8b46c9e19cac1b6429793b3a6ecf8c69, type: 3}
+  outsideClip: {fileID: 8300000, guid: 8f71a0b5aaf45914084caa522c367ff4, type: 3}
 --- !u!1001 &2132556233
 PrefabInstance:
   m_ObjectHideFlags: 0
