@@ -30,8 +30,12 @@ public class GameGui : MonoBehaviour
 
     private void Start()
     {
-        progWidth = levelScoreProgress.rect.width;
-        progHeight = levelScoreProgress.rect.height;
+		if (levelScoreProgress != null)
+		{
+			progWidth = levelScoreProgress.rect.width;
+			progHeight = levelScoreProgress.rect.height;
+		}
+        
     }
 
     // Update is called once per frame

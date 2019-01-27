@@ -25,12 +25,16 @@ public class EnemyManager : MonoBehaviour
     {
         int rand = Random.Range(0, enemies.Count);
         int spaw = Random.Range(0, spawPoints.Count);
-        GameObject e = Instantiate(enemies[rand], spawPoints[spaw].position, Quaternion.identity);
+		if (spawPoints != null)
+		{
+			GameObject e = Instantiate(enemies[rand], spawPoints[spaw].position, Quaternion.identity);
+        
         Enemy e2 = e.GetComponent<Enemy>();
         e2.m = this;
         spawnedEnemies.Add(e2);
+		}
 
-        yield return new WaitForSeconds(spawnInterval + Random.Range(-5,5));
+		yield return new WaitForSeconds(spawnInterval + Random.Range(-5,5));
         StartCoroutine("SpawnEnemy");
     }
     

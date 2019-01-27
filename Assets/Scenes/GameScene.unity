@@ -5786,6 +5786,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
         type: 3}
+      propertyPath: levels.Array.data[0].tasks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
       propertyPath: houseAnimator
       value: 
       objectReference: {fileID: 5743729847562125856}
@@ -5852,12 +5867,132 @@ PrefabInstance:
     - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
         type: 3}
       propertyPath: levels.Array.data[0].tasks.Array.data[0].taskKind
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
         type: 3}
       propertyPath: levels.Array.data[0].tasks.Array.data[0].recipieKind
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[0].tasks.Array.data[0].time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[0].tasks.Array.data[1].time
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[0].tasks.Array.data[2].time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[0].tasks.Array.data[3].time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].time
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[0].taskKind
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[0].rewardPoints
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[0].failPoints
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[0].time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[1].taskKind
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[1].rewardPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[1].failPoints
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[1].time
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[2].taskKind
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[2].rewardPoints
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[2].failPoints
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[2].time
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[3].taskKind
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[3].rewardPoints
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[3].failPoints
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[3].time
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[0].time
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[1].recipieKind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218183228621546560, guid: 7239c5d191f71ba4a92e9f854eeb7d10,
+        type: 3}
+      propertyPath: levels.Array.data[1].tasks.Array.data[2].recipieKind
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7239c5d191f71ba4a92e9f854eeb7d10, type: 3}
@@ -14271,7 +14406,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1046876736, guid: d0199e6961837494bade5349ec166797, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0199e6961837494bade5349ec166797, type: 3}
 --- !u!1 &1046876735 stripped
 GameObject:
