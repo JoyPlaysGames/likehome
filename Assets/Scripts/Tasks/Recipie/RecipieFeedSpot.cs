@@ -11,6 +11,9 @@ public class RecipieFeedSpot : MonoBehaviour
 		Player._instance.potInHand = false;
 		Player._instance.playerAnimator.SetTrigger("PlaceItem");
 		The.taskManager.ConsumeRecipie(ingredients);
-		pot.ingredients.Clear();
+		if(ingredients.Count != 0)
+		{
+			pot.ingredients.Clear();
+		}
     }
 }
