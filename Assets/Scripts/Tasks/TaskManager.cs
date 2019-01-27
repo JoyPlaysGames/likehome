@@ -151,7 +151,7 @@ public class TaskManager : MonoBehaviour
         if (levelTime > 0)
         {
             levelTime -= Time.deltaTime;
-            levelTimeText.text = Mathf.Round(levelTime).ToString();
+            levelTimeText.text = The.gameGui.FormatTime(Mathf.Round(levelTime));
         }
         else
         {

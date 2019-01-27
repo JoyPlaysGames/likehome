@@ -55,6 +55,9 @@ MonoBehaviour:
   - kind: 3
     icon: {fileID: 21300000, guid: 96f4cd430acdb684fbcaf23c454cc85d, type: 3}
     prefab: {fileID: 0}
+  - kind: 4
+    icon: {fileID: 21300000, guid: 96f4cd430acdb684fbcaf23c454cc85d, type: 3}
+    prefab: {fileID: 0}
 --- !u!114 &8001122658814658514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,17 +77,23 @@ MonoBehaviour:
       count: 1
     - ingredient: 2
       count: 1
+    - ingredient: 4
+      count: 1
   - kind: 2
     reqirements:
     - ingredient: 1
       count: 1
     - ingredient: 3
       count: 1
+    - ingredient: 4
+      count: 1
   - kind: 3
     reqirements:
     - ingredient: 2
       count: 1
     - ingredient: 3
+      count: 1
+    - ingredient: 4
       count: 1
 --- !u!114 &2677970730242490846
 MonoBehaviour:
@@ -100,8 +109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskConfig:
   - kind: 1
-    icon: {fileID: 21300000, guid: e700321339cedb04d99ffe09705d658a, type: 3}
+    icon: {fileID: 21300000, guid: 1db014388758dcf48a42ce2663c11d5a, type: 3}
     prefab: {fileID: 0}
+    performingTime: 3
   - kind: 2
-    icon: {fileID: 21300000, guid: b6f45b4d800524841a0e5d7ff8a602d9, type: 3}
+    icon: {fileID: 21300000, guid: e7dda543295ba2144a5300d0fed0278d, type: 3}
     prefab: {fileID: 0}
+    performingTime: 3

@@ -15,11 +15,16 @@ public class TaskContainer : MonoBehaviour
     public GameObject blockFail;
     public GameObject blockWin;
 
+    public RecipieItemPanel recipieItem;
+    public GameObject recipieIemWrap;
+
     float startTime;
     float time;
 
     bool active = false;
     int id;
+    float progWidth;
+    float progHeight;
 
     public void Sync(LevelTask task )
     {
@@ -38,9 +43,19 @@ public class TaskContainer : MonoBehaviour
         } else
         {
             taskImage.sprite = The.gameGui.recipieIcon;
+            RecipieConfig c = The.recipies.GetRecipie(task.recipieKind);
+            foreach(RecipieRequirements r in c.reqirements)
+            {
+                RecipieItemPanel p = Instantiate(recipieItem, Vector3.zero, Quaternion.identity);
+                p.transform.parent = recipieIemWrap.transform;
+                p.transform.localScale = Vector3.one;
+                p.count.text = r.count.ToString();
+                p.icon.sprite = The.ingredients.GetIngredientConfig(r.ingredient).icon;
+            }
         }
 
-
+        progWidth = progressBar.rect.width;
+        progHeight = progressBar.rect.height;
         active = true;
     }
 
@@ -55,7 +70,7 @@ public class TaskContainer : MonoBehaviour
             time -= Time.deltaTime;
 
             float p = time * 100 / startTime;
-            progressBar.sizeDelta = new Vector2(p, 9.5f);
+            progressBar.sizeDelta = new Vector2(progWidth * p / 100, progHeight);//new Vector2(p, 9.5f);
             timeCounter.text = Mathf.Round(time).ToString();
 
         }

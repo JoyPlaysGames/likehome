@@ -17,15 +17,33 @@ public class GameGui : MonoBehaviour
     public GameObject winPopup;
     public GameObject losePoup;
 
+    public RectTransform levelScoreProgress;
+
+    float progWidth;
+    float progHeight;
+
     // Start is called before the first frame update
     void Awake()
     {
         The.gameGui = this;
     }
 
+    private void Start()
+    {
+        progWidth = levelScoreProgress.rect.width;
+        progHeight = levelScoreProgress.rect.height;
+    }
+
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public string FormatTime(float s)
+    {
+        var min = Mathf.Floor(s / 60);
+        var sec = s - min * 60;
+        return min.ToString() + ":" + sec.ToString();
     }
 }
